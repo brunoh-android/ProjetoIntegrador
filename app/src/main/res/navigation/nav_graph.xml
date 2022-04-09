@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="br.bruno.projetointegrador.fragments.BottonNavigation.HomeFragment"
+        android:label="home_fragments"
+        tools:layout="@layout/home_fragments" />
+    <fragment
+        android:id="@+id/aboutFragment"
+        android:name="br.bruno.projetointegrador.fragments.BottonNavigation.AboutFragment"
+        android:label="about_fragments"
+        tools:layout="@layout/about_fragments" />
+    <fragment
+        android:id="@+id/favoritosFragment"
+        android:name="br.bruno.projetointegrador.fragments.BottonNavigation.FavoritosFragment"
+        android:label="favoritos_fragments"
+        tools:layout="@layout/favoritos_fragments" />
+    <fragment
+        android:id="@+id/profileFragment"
+        android:name="br.bruno.projetointegrador.fragments.BottonNavigation.ProfileFragment"
+        android:label="profile_fragments"
+        tools:layout="@layout/profile_fragments" />
+</navigation>
