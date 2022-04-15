@@ -3,8 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/drawable/ic_search.xml" value="0.168" />
+        <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/drawable/tab_item_selector.xml" value="0.1" />
+        <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/drawable/tab_selector.xml" value="0.168" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/about_fragments.xml" value="0.3194444444444444" />
-        <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.25" />
+        <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.33" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/favoritos_fragments.xml" value="0.3194444444444444" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/fragment_fragments_em_cartaz.xml" value="0.2657407407407407" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/fragment_fragments_mais_votado.xml" value="0.2657407407407407" />
@@ -13,7 +16,7 @@
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/fragments_mais_votado.xml" value="0.2657407407407407" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/fragments_populares.xml" value="0.2657407407407407" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/fragments_proximas_estreias.xml" value="0.2657407407407407" />
-        <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/home_fragments.xml" value="0.2" />
+        <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/home_fragments.xml" value="0.33" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/profile_fragments.xml" value="0.3194444444444444" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/menu/menu.xml" value="0.2657407407407407" />
       </map>

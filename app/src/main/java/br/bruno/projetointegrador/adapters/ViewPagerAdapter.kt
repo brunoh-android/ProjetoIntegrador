@@ -4,10 +4,10 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
 import androidx.fragment.app.FragmentPagerAdapter
 
-class ViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(fragmentManager) {
+class ViewPagerAdapter(supportFragmentManager: FragmentManager) : FragmentPagerAdapter(supportFragmentManager, BEHAVIOR_RESUME_ONLY_CURRENT_FRAGMENT) {
 
-    var listaDeFragmentos = mutableListOf<Fragment>()
-    var listaDeTitulos = mutableListOf<String>()
+    var listaDeFragmentos = ArrayList<Fragment>()
+    var listaDeTitulos = ArrayList<String>()
 
     fun add(fragment: Fragment,titulo:String){
         listaDeFragmentos.add(fragment)
@@ -19,7 +19,7 @@ class ViewPagerAdapter(fragmentManager: FragmentManager) : FragmentPagerAdapter(
     }
 
     override fun getItem(position: Int): Fragment {
-        return listaDeFragmentos.get(position)
+        return listaDeFragmentos[position]
     }
 
     override fun getPageTitle(position: Int): CharSequence? {
