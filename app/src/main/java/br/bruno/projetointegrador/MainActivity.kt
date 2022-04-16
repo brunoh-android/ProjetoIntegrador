@@ -25,10 +25,5 @@ class MainActivity : AppCompatActivity() {
 
 
     }
-
-//    fun trocaDeFragmentos(fragment: Fragment) {
-//        supportFragmentManager.beginTransaction().apply {
-//            replace(R.id.fragmentContainer, fragment)
-//            commit()
-//        }
 }
+
