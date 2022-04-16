@@ -1,41 +1,42 @@
 package br.bruno.projetointegrador.fragments.BottonNavigation
 
 import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.viewpager.widget.ViewPager
 import br.bruno.projetointegrador.R
+import br.bruno.projetointegrador.adapters.ViewPagerAdapter
+import br.bruno.projetointegrador.fragments.tabItens.EmCartazFragment
+import br.bruno.projetointegrador.fragments.tabItens.MaisVotadoFragment
+import br.bruno.projetointegrador.fragments.tabItens.PopularesFragment
+import br.bruno.projetointegrador.fragments.tabItens.ProximasEstreiasFragment
 import com.google.android.material.tabs.TabLayout
-import com.google.android.material.tabs.TabLayoutMediator
 
 
-class HomeFragment : Fragment() {
-
-    override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View? {
-
-        return inflater.inflate(R.layout.home_fragments, container, false)
+class HomeFragment : Fragment(R.layout.home_fragments) {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
     }
 
-    val teste = arrayListOf("A", "B")
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-        TabLayoutMediator(view.findViewById(R.id.tabLayout),view.findViewById(R.id.viewPager)){
-            tab, position ->
-            tab.text = teste[position]
-        }
+    override fun onStart() {
+        super.onStart()
+        setUpTabs()
     }
 
-//
-//        var adapter = ViewPagerAdapter(childFragmentManager)
-//        adapter.add(EmCartazFragment(),"Em Cartaz")
-//        adapter.add(MaisVotadoFragment(),"Mais Votados")
-//        adapter.add(PopularesFragment(),"Popular")
-//        adapter.add(ProximasEstreiasFragment(),"Proximas Estreias")
+    private fun setUpTabs() {
+        val supportFragmentManager = childFragmentManager
+
+        val viewPager = requireView().findViewById<ViewPager>(R.id.viewPager)
+        val tabLayout = requireView().findViewById<TabLayout>(R.id.tabLayout)
+
+        val adapter = ViewPagerAdapter(supportFragmentManager)
+        adapter.add(PopularesFragment(), "Populares")
+        adapter.add(MaisVotadoFragment(), "Mais Votados")
+        adapter.add(EmCartazFragment(), "Em Cartaz")
+        adapter.add(ProximasEstreiasFragment(), "Estreias")
+
+        viewPager.adapter = adapter
+        tabLayout.setupWithViewPager(viewPager)
+    }
 
 
 }

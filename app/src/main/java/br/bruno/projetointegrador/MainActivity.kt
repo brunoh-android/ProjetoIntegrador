@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.NavController
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI.setupWithNavController
-import br.bruno.projetointegrador.fragments.BottonNavigation.HomeFragment
 import com.google.android.material.bottomnavigation.BottomNavigationView
 
 class MainActivity : AppCompatActivity() {
@@ -15,6 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+
         val navHostFragment =
             supportFragmentManager.findFragmentById(R.id.fragmentContainer) as NavHostFragment
         navController = navHostFragment.navController
@@ -23,10 +23,12 @@ class MainActivity : AppCompatActivity() {
         val bottomNavigationView = findViewById<BottomNavigationView>(R.id.btnNavigation)
         setupWithNavController(bottomNavigationView, navController)
 
-        if (savedInstanceState == null) {
-            supportFragmentManager.beginTransaction()
-                .add(R.id.viewPager, HomeFragment())
-                .commit()
-        }
+
     }
+
+//    fun trocaDeFragmentos(fragment: Fragment) {
+//        supportFragmentManager.beginTransaction().apply {
+//            replace(R.id.fragmentContainer, fragment)
+//            commit()
+//        }
 }

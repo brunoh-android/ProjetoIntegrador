@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.BottonNavigation.FavoritosFragment">
+    tools:context=".fragments.BottonNavigation.FavoritosFragment"
+    android:background="@color/red">
 
     <TextView
         android:id="@+id/favoritos_tittle"
