@@ -10,7 +10,7 @@
         android:layout_width="344dp"
         android:layout_height="50dp"
         android:layout_marginTop="36dp"
-        android:backgroundTint="#E10707"
+        android:backgroundTint="#01b4e4"
         android:text="SIGN IN"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"

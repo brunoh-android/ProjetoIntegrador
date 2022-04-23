@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/drawable/button_sign.xml" value="0.222" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/drawable/email_senha.xml" value="0.222" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/layout/createaccount.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/layout/createaccount2.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/layout/createpassword.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/layout/esqueci_senha.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/layout/home_fragments.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/layout/profile_fragments.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/layout/tela_inicial.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/layout/tela_login.xml" value="0.25416666666666665" />
+        <entry key="..\:/Users/55199/Desktop/ProjetoIntegrador/app/src/main/res/menu/menu.xml" value="0.25416666666666665" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/drawable/ic_search.xml" value="0.168" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/drawable/tab_item_selector.xml" value="0.1" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/drawable/tab_selector.xml" value="0.168" />

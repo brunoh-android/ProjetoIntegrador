@@ -40,7 +40,7 @@
         android:layout_width="344dp"
         android:layout_height="50dp"
         android:layout_marginTop="8dp"
-        android:background="@drawable/button_sign"
+        android:background="#01b4e4"
         android:text="SEND RESET LINK"
         android:textColor="@color/white"
         app:layout_constraintEnd_toEndOf="parent"
