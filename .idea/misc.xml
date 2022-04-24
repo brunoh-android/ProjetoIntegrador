@@ -3,6 +3,10 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/Vitor/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/drawable/ic_person.xml" value="0.1945" />
+        <entry key="..\:/Users/Vitor/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/about_fragments.xml" value="0.25" />
+        <entry key="..\:/Users/Vitor/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/Vitor/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/layout/profile_fragments.xml" value="0.22" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/drawable/ic_search.xml" value="0.168" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/drawable/tab_item_selector.xml" value="0.1" />
         <entry key="..\:/Users/bruno/AndroidStudioProjects/ProjetoIntegrador/app/src/main/res/drawable/tab_selector.xml" value="0.168" />
