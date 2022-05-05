@@ -6,22 +6,22 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="br.bruno.projetointegrador.fragments.BottonNavigation.HomeFragment"
+        android:name="br.bruno.projetointegrador.home.view.HomeFragment"
         android:label="home_fragments"
         tools:layout="@layout/home_fragments" />
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="br.bruno.projetointegrador.fragments.BottonNavigation.AboutFragment"
+        android:name="br.bruno.projetointegrador.about.AboutFragment"
         android:label="about_fragments"
         tools:layout="@layout/about_fragments" />
     <fragment
         android:id="@+id/favoritosFragment"
-        android:name="br.bruno.projetointegrador.fragments.BottonNavigation.FavoritosFragment"
+        android:name="br.bruno.projetointegrador.favorites.view.FavoritosFragment"
         android:label="favoritos_fragments"
         tools:layout="@layout/favoritos_fragments" />
     <fragment
         android:id="@+id/profileFragment"
-        android:name="br.bruno.projetointegrador.fragments.BottonNavigation.ProfileFragment"
+        android:name="br.bruno.projetointegrador.profile.view.ProfileFragment"
         android:label="profile_fragments"
         tools:layout="@layout/profile_fragments" />
 </navigation>

@@ -3,12 +3,12 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
 
-<!--<<<<<<< HEAD-->
+    <!--<<<<<<< HEAD-->
 
     <string name="Mais_votados">Mais votados</string>
     <string name="Mais_votados2">Mais votados1</string>
     <string name="Mais_votados3">Mais votados2</string>
-=======
+    =======
     <string name="meus_filmes_favoritos">Meus filmes favoritos</string>
->>>>>>> feature/favoritos
+    >>>>>>> feature/favoritos
 </resources>

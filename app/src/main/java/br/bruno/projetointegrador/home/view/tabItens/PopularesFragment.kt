@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.fragments.BottonNavigation
+package br.bruno.projetointegrador.home.view.tabItens
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import br.bruno.projetointegrador.R
 
 
-class ProfileFragment : Fragment() {
+class PopularesFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         
-        return inflater.inflate(R.layout.profile_fragments, container, false)
+        return inflater.inflate(R.layout.fragments_populares, container, false)
     }
 
 }

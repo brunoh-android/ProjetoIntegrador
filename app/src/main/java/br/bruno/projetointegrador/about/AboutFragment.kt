@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.fragments.tabItens
+package br.bruno.projetointegrador.about
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -8,14 +8,14 @@ import android.view.ViewGroup
 import br.bruno.projetointegrador.R
 
 
-class ProximasEstreiasFragment : Fragment() {
+class AboutFragment : Fragment() {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         
-        return inflater.inflate(R.layout.fragments_proximas_estreias, container, false)
+        return inflater.inflate(R.layout.about_fragments, container, false)
     }
 
 }

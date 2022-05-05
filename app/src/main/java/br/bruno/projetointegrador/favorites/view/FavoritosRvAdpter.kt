@@ -1,13 +1,12 @@
-package br.bruno.projetointegrador.adapters
+package br.bruno.projetointegrador.favorites.view
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.appcompat.view.menu.ActionMenuItemView
 import androidx.recyclerview.widget.RecyclerView
-import br.bruno.projetointegrador.Data.ListaDeFavoritos
+import br.bruno.projetointegrador.favorites.model.ListaDeFavoritos
 import br.bruno.projetointegrador.R
 
 class FavoritosRvAdpter(

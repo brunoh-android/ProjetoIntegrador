@@ -1,14 +1,14 @@
-package br.bruno.projetointegrador.fragments.BottonNavigation
+package br.bruno.projetointegrador.home.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.adapters.ViewPagerAdapter
-import br.bruno.projetointegrador.fragments.tabItens.EmCartazFragment
-import br.bruno.projetointegrador.fragments.tabItens.MaisVotadoFragment
-import br.bruno.projetointegrador.fragments.tabItens.PopularesFragment
-import br.bruno.projetointegrador.fragments.tabItens.ProximasEstreiasFragment
+import br.bruno.projetointegrador.favorites.view.ViewPagerAdapter
+import br.bruno.projetointegrador.home.view.tabItens.EmCartazFragment
+import br.bruno.projetointegrador.home.view.tabItens.MaisVotadoFragment
+import br.bruno.projetointegrador.home.view.tabItens.PopularesFragment
+import br.bruno.projetointegrador.home.view.tabItens.ProximasEstreiasFragment
 import com.google.android.material.tabs.TabLayout
 
 

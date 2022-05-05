@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.Data
+package br.bruno.projetointegrador.favorites.model
 
 import android.widget.ImageView
 

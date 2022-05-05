@@ -1,14 +1,12 @@
-package br.bruno.projetointegrador.fragments.BottonNavigation
+package br.bruno.projetointegrador.favorites.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
-import br.bruno.projetointegrador.Data.ListaDeFavoritos
+import br.bruno.projetointegrador.favorites.model.ListaDeFavoritos
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.adapters.FavoritosRvAdpter
+import br.bruno.projetointegrador.favorites.view.FavoritosRvAdpter
 
 
 class FavoritosFragment : Fragment(R.layout.favoritos_fragments) {

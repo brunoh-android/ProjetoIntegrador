@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.adapters
+package br.bruno.projetointegrador.favorites.view
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager

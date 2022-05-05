@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.fragments.tabItens
+package br.bruno.projetointegrador.home.view.tabItens
 
 import android.os.Bundle
 import android.view.LayoutInflater
