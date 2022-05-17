@@ -7,7 +7,7 @@ import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.favorites.view.ViewPagerAdapter
 import br.bruno.projetointegrador.home.view.tabItens.EmCartazFragment
 import br.bruno.projetointegrador.home.view.tabItens.MaisVotadoFragment
-import br.bruno.projetointegrador.home.view.tabItens.PopularesFragment
+import br.bruno.projetointegrador.home.view.tabItens.popular.view.PopularesFragment
 import br.bruno.projetointegrador.home.view.tabItens.ProximasEstreiasFragment
 import com.google.android.material.tabs.TabLayout
 

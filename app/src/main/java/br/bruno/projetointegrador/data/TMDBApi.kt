@@ -5,6 +5,6 @@ import retrofit2.http.GET
 
 interface TMDBApi {
 
-    @GET("movie/550?api_key=$API_KEY")
-    suspend fun fetchMovie() : TMDBResponse
+    @GET("/3/movie/popular?api_key=$API_KEY")
+    suspend fun fetchMovieList() : TMDBResponse
 }

@@ -8,7 +8,7 @@ class TMDB_Repository {
 
     private val api = tmdbApi
 
-    suspend fun fetchMovie(): TMDBResponse = withContext(Dispatchers.IO) {
-        api.fetchMovie()
+    suspend fun fetchMovieList(): TMDBResponse = withContext(Dispatchers.IO) {
+        api.fetchMovieList()
     }
 }
