@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.home.view.tabItens
+package br.bruno.projetointegrador.home.view.tabItens.maisVotados
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

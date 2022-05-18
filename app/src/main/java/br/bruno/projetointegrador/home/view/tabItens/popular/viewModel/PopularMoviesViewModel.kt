@@ -4,14 +4,14 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.bruno.projetointegrador.data.TMDB_Repository
-import br.bruno.projetointegrador.home.view.tabItens.popular.vo.MoviesVO
+import br.bruno.projetointegrador.home.view.tabItens.popular.data.PopularMoives_Repository
+import br.bruno.projetointegrador.home.view.tabItens.popular.vo.PopularMoviesVO
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
 class PopularMoviesViewModel : ViewModel() {
 
-    private val repository: TMDB_Repository = TMDB_Repository()
+    private val repository: PopularMoives_Repository = PopularMoives_Repository()
 
     private val _movieList: MutableLiveData<Result> = MutableLiveData()
     val movieList: LiveData<Result> = _movieList
@@ -21,7 +21,7 @@ class PopularMoviesViewModel : ViewModel() {
             try {
                 val response = repository.fetchMovieList()
                 val vo = response.moviesList.map {
-                    MoviesVO(
+                    PopularMoviesVO(
                         original_title = it.original_title,
                         vote_average = it.vote_average,
                         overview = it.overview
@@ -38,7 +38,7 @@ class PopularMoviesViewModel : ViewModel() {
 sealed class Result {
 
     data class Success(
-        val data: List<MoviesVO>
+        val data: List<PopularMoviesVO>
     ) : Result()
 
     object Error : Result() {

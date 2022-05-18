@@ -6,9 +6,9 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.view.tabItens.popular.vo.MoviesVO
+import br.bruno.projetointegrador.home.view.tabItens.popular.vo.PopularMoviesVO
 
-class MoviesAdapter(private val movies: List<MoviesVO>) :
+class MoviesAdapter(private val movies: List<PopularMoviesVO>) :
     RecyclerView.Adapter<MoivesViewHolder>() {
 
 
@@ -32,7 +32,7 @@ class MoivesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     private val avarege = itemView.findViewById<TextView>(R.id.avarege)
     private val overview = itemView.findViewById<TextView>(R.id.overview)
 
-    fun bind(movie: MoviesVO) {
+    fun bind(movie: PopularMoviesVO) {
         tittle.text = movie.original_title
         avarege.text = movie.vote_average.toString()
         overview.text = movie.overview

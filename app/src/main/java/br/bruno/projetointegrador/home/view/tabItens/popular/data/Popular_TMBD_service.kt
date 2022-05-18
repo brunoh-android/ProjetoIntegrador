@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.data
+package br.bruno.projetointegrador.home.view.tabItens.popular.data
 
 import android.util.Log
 import okhttp3.OkHttpClient
@@ -24,4 +24,4 @@ private val retrofit = Retrofit.Builder()
     .addConverterFactory(GsonConverterFactory.create())
     .build()
 
-val tmdbApi: TMDBApi = retrofit.create(TMDBApi::class.java)
+val popularTmdbApi: Popular_TMDBApi = retrofit.create(Popular_TMDBApi::class.java)

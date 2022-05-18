@@ -5,10 +5,10 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.favorites.view.ViewPagerAdapter
-import br.bruno.projetointegrador.home.view.tabItens.EmCartazFragment
-import br.bruno.projetointegrador.home.view.tabItens.MaisVotadoFragment
+import br.bruno.projetointegrador.home.view.tabItens.emCartaz.EmCartazFragment
+import br.bruno.projetointegrador.home.view.tabItens.maisVotados.MaisVotadoFragment
 import br.bruno.projetointegrador.home.view.tabItens.popular.view.PopularesFragment
-import br.bruno.projetointegrador.home.view.tabItens.ProximasEstreiasFragment
+import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.ProximasEstreiasFragment
 import com.google.android.material.tabs.TabLayout
 
 
