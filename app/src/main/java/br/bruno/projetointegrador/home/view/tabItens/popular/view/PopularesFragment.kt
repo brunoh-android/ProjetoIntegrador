@@ -39,6 +39,8 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
                 }
             }
         }
+
+
     }
 
     private fun preperReycclerView(data: List<PopularMoviesVO>, view: View) {

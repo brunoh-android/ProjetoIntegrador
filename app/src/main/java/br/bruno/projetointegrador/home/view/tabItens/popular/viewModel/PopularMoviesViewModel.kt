@@ -20,11 +20,15 @@ class PopularMoviesViewModel : ViewModel() {
         viewModelScope.launch {
             try {
                 val response = repository.fetchMovieList()
+                val config = repository.fetchImage().images
                 val vo = response.moviesList.map {
                     PopularMoviesVO(
                         original_title = it.original_title,
                         vote_average = it.vote_average,
-                        overview = it.overview
+                        overview = it.overview,
+                        poster_path = it.poster_path,
+                        base_url_image = config.base_url,
+                        poster_size = config.poster_sizes
                     )
                 }
                 _movieList.value = Result.Success(vo)
@@ -34,6 +38,7 @@ class PopularMoviesViewModel : ViewModel() {
         }
     }
 }
+
 
 sealed class Result {
 

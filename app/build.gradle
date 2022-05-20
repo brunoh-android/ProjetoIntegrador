@@ -71,4 +71,6 @@ dependencies {
     // Livedata KTX
     def liveDataKtxVersion = "2.4.1"
     implementation "androidx.lifecycle:lifecycle-livedata-ktx:$liveDataKtxVersion"
+
+    implementation 'com.squareup.picasso:picasso:2.4.0'
 }
