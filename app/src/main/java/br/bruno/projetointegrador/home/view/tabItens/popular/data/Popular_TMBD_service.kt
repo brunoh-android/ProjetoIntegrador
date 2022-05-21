@@ -8,6 +8,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 
 private const val BASE_URL = "https://api.themoviedb.org"
 const val API_KEY = "34ed4f4013d18f8a662d23851a6a5670"
+const val IMAGE_URL = "https://image.tmdb.org/t/p/original"
 
 private val interceptor = HttpLoggingInterceptor {
     Log.d("RETROFIT_CLIENT", it)

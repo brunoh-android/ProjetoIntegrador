@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.bruno.projetointegrador.home.view.tabItens.popular.data.IMAGE_URL
 import br.bruno.projetointegrador.home.view.tabItens.popular.data.PopularMoives_Repository
 import br.bruno.projetointegrador.home.view.tabItens.popular.vo.PopularMoviesVO
 import kotlinx.coroutines.launch
@@ -27,7 +28,7 @@ class PopularMoviesViewModel : ViewModel() {
                         vote_average = it.vote_average,
                         overview = it.overview,
                         poster_path = it.poster_path,
-                        base_url_image = config.base_url,
+                        base_url_image = IMAGE_URL,
                         poster_size = config.poster_sizes
                     )
                 }

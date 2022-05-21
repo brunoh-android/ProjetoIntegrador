@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.about
+package br.bruno.projetointegrador.about.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

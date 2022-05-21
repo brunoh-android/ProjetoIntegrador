@@ -14,6 +14,7 @@ import br.bruno.projetointegrador.home.view.tabItens.popular.vo.PopularMoviesVO
 
 class PopularesFragment : Fragment(R.layout.fragments_populares) {
 
+
     private val viewModel: PopularMoviesViewModel by viewModels()
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -44,7 +45,7 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
     }
 
     private fun preperReycclerView(data: List<PopularMoviesVO>, view: View) {
-        view.findViewById<RecyclerView>(R.id.MoviesRV).adapter = MoviesAdapter(data)
+        view.findViewById<RecyclerView>(R.id.MoviesRV).adapter = MoviesAdapter(requireContext(),data)
 
     }
 

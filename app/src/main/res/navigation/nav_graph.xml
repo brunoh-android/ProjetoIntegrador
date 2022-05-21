@@ -11,7 +11,7 @@
         tools:layout="@layout/home_fragments" />
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="br.bruno.projetointegrador.about.AboutFragment"
+        android:name="br.bruno.projetointegrador.about.view.AboutFragment"
         android:label="about_fragments"
         tools:layout="@layout/about_fragments" />
     <fragment
