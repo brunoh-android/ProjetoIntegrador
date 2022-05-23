@@ -27,7 +27,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="bottom"
-        app:backgroundTint="@color/white"
+        app:backgroundTint="@color/colorAccent"
         app:itemIconTint="@drawable/tab_selector"
         app:itemTextColor="@drawable/tab_selector"
         app:labelVisibilityMode="labeled"
