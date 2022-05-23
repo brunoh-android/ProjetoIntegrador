@@ -5,7 +5,9 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".home.view.HomeFragment">
+    tools:context=".home.view.HomeFragment"
+    android:background="@color/black"
+    >
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
@@ -64,6 +66,7 @@
         app:tabIndicatorFullWidth="true"
         app:tabIndicatorHeight="2dp"
         app:tabSelectedTextColor="@color/colorAccent"
+        app:tabTextColor="@color/cardview_dark_background"
         app:tabTextAppearance="@style/CustomTabTextAppearance" />
 
     <View
