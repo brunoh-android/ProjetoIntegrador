@@ -13,26 +13,28 @@ import retrofit2.HttpException
 class PopularMoviesViewModel : ViewModel() {
 
     private val repository: PopularMoives_Repository = PopularMoives_Repository()
-
     private val _movieList: MutableLiveData<Result> = MutableLiveData()
     val movieList: LiveData<Result> = _movieList
+    var totalPages= 0
 
-    fun fetchMovieList() {
+    fun fetchMovieList(page : Int) {
         viewModelScope.launch {
             try {
-                val response = repository.fetchMovieList()
-                val config = repository.fetchImage().images
+                val response = repository.fetchMovieList(page)
+                totalPages = response.totalPages
+                //val config = repository.fetchImage().images
                 val vo = response.moviesList.map {
                     PopularMoviesVO(
-                        original_title = it.original_title,
+                        title = it.title,
                         vote_average = it.vote_average,
                         overview = it.overview,
                         poster_path = it.poster_path,
                         base_url_image = IMAGE_URL,
-                        poster_size = config.poster_sizes
+                       // poster_size = config.poster_sizes
                     )
                 }
                 _movieList.value = Result.Success(vo)
+                totalPages = response.totalPages
             } catch (ex: HttpException) {
                 _movieList.value = Result.Error
             }

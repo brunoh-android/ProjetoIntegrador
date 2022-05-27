@@ -29,6 +29,7 @@ class HomeFragment : Fragment(R.layout.home_fragments) {
         val tabLayout = requireView().findViewById<TabLayout>(R.id.tabLayout)
 
         val adapter = ViewPagerAdapter(supportFragmentManager)
+
         adapter.add(PopularesFragment(), "Populares")
         adapter.add(MaisVotadoFragment(), "Mais Votados")
         adapter.add(EmCartazFragment(), "Em Cartaz")

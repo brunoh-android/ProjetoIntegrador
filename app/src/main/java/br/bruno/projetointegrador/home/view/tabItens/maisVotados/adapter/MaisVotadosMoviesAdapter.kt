@@ -48,7 +48,7 @@ class MaisVotadosMoivesViewHolder(private val context: Context, itemView: View) 
 
 
         Glide.with(context).asDrawable().load(movie.base_url_image + movie.poster_path)
-          .apply(RequestOptions().override(300, 300).centerInside().placeholder(R.drawable.placehoder)).into(poster)
+          .apply(RequestOptions().override(400, 400).centerInside().placeholder(R.drawable.placehoder)).into(poster)
 
         //  Glide.with(context).load(movie.base_url_image + movie.poster_path).placeholder(R.drawable.placehoder).fitCenter().into(poster)
 

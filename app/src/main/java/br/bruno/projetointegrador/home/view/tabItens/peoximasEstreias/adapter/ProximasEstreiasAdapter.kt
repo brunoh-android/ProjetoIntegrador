@@ -42,13 +42,13 @@ class ProximasEstreiasMoviesViewHolder(private val context: Context, itemView: V
     private val poster = itemView.findViewById<ImageView>(R.id.poster_iv)
 
     fun bind(movie: ProximasEstreiasMoviesVO, ) {
-        tittle.text = movie.original_title
+        tittle.text = movie.title
         avarege.text = movie.vote_average.toString()
         overview.text = movie.overview
 
 
         Glide.with(context).asDrawable().load(movie.base_url_image + movie.poster_path)
-            .apply(RequestOptions().override(300, 300).centerInside().placeholder(R.drawable.placehoder)).into(poster)
+            .apply(RequestOptions().override(400, 400).centerInside().placeholder(R.drawable.placehoder)).into(poster)
 
         //  Glide.with(context).load(movie.base_url_image + movie.poster_path).placeholder(R.drawable.placehoder).fitCenter().into(poster)
 

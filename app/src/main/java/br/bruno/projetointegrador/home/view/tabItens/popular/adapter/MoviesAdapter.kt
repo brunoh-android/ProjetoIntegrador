@@ -14,10 +14,16 @@ import com.bumptech.glide.request.RequestOptions
 
 class MoviesAdapter(
     private val context: Context,
-    private val movies: List<PopularMoviesVO>,
+
 ) :
     RecyclerView.Adapter<MoivesViewHolder>() {
 
+    private val movies: MutableList<PopularMoviesVO> = emptyList<PopularMoviesVO>().toMutableList()
+
+    fun addData(addMovies: List<PopularMoviesVO>){
+        movies.addAll(addMovies)
+        notifyDataSetChanged()
+    }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoivesViewHolder {
         val itemView = LayoutInflater.from(parent.context)
@@ -32,6 +38,8 @@ class MoviesAdapter(
     }
 
     override fun getItemCount(): Int = movies.size
+
+
 }
 
 class MoivesViewHolder(private val context: Context, itemView: View) : RecyclerView.ViewHolder(itemView) {
@@ -41,14 +49,14 @@ class MoivesViewHolder(private val context: Context, itemView: View) : RecyclerV
     private val overview = itemView.findViewById<TextView>(R.id.overview)
     private val poster = itemView.findViewById<ImageView>(R.id.poster_iv)
 
+
     fun bind(movie: PopularMoviesVO, ) {
-        tittle.text = movie.original_title
+        tittle.text = movie.title
         avarege.text = movie.vote_average.toString()
         overview.text = movie.overview
 
-
         Glide.with(context).asDrawable().load(movie.base_url_image + movie.poster_path)
-          .apply(RequestOptions().override(300, 300).centerInside().placeholder(R.drawable.placehoder)).into(poster)
+          .apply(RequestOptions().override(400, 400).centerInside().placeholder(R.drawable.placehoder)).into(poster)
 
         //  Glide.with(context).load(movie.base_url_image + movie.poster_path).placeholder(R.drawable.placehoder).fitCenter().into(poster)
 

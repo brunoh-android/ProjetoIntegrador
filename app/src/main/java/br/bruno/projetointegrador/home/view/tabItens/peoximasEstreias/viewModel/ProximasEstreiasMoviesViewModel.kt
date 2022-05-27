@@ -24,12 +24,12 @@ fun fetchMovieList() {
             val config = repository.fetchImage().images
             val vo = response.moviesList.map {
                 ProximasEstreiasMoviesVO(
-                    original_title = it.original_title,
+                    title = it.title,
                     vote_average = it.vote_average,
                     overview = it.overview,
                     poster_path = it.poster_path,
                     base_url_image = IMAGE_URL,
-                    poster_size = config.poster_sizes
+                 //   poster_size = config.poster_sizes
                 )
             }
             _movieList.value = Result.Success(vo)

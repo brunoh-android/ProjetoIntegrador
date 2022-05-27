@@ -6,5 +6,5 @@ data class EmCartazMoviesVO(
     val overview : String,
     val poster_path : String?,
     val base_url_image: String,
-    val poster_size : Array<String>
+    //val poster_size : Array<String>
 )
