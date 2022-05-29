@@ -50,6 +50,6 @@ sealed class Result {
     ) : Result()
 
     object Error : Result() {
-        val genericMsg: String = "Ops, algo deu errado!"
+        const val genericMsg: String = "Ops, algo deu errado!"
     }
 }

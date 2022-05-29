@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
@@ -24,18 +25,17 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
         viewModel.totalPages
     }
     private val adapter : MoviesAdapter by lazy {
-        MoviesAdapter(requireContext())
+        MoviesAdapter(requireContext()){
+            findNavController().navigate(R.id.action_homeFragment_to_favoritosFragment)
+        }
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         preperReycclerView(view)
-        setupObserver(view)
+        setupObserver()
         setupView()
-
-
-
 
     }
 
@@ -43,7 +43,7 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
         viewModel.fetchMovieList(page)
     }
 
-    private fun setupObserver(view: View) {
+    private fun setupObserver() {
         viewModel.movieList.observe(viewLifecycleOwner) {
 
             when (it) {
