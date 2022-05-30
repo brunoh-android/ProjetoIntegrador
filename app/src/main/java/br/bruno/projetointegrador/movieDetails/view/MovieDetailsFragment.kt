@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.movieDetails
+package br.bruno.projetointegrador.movieDetails.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment

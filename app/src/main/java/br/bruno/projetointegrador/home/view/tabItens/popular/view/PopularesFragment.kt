@@ -9,8 +9,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.view.tabItens.popular.data.PopularMoives_Repository
-import br.bruno.projetointegrador.home.view.tabItens.popular.data.dto.PopularMoviesResponse
 import br.bruno.projetointegrador.home.view.tabItens.popular.viewModel.PopularMoviesViewModel
 import br.bruno.projetointegrador.home.view.tabItens.popular.viewModel.Result
 
@@ -26,7 +24,8 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
     }
     private val adapter : MoviesAdapter by lazy {
         MoviesAdapter(requireContext()){
-            findNavController().navigate(R.id.action_homeFragment_to_favoritosFragment)
+
+            findNavController().navigate(R.id.action_homeFragment_to_movieDetailsFragment)
         }
     }
 

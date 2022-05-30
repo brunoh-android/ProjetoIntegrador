@@ -5,14 +5,14 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.bruno.projetointegrador.home.view.tabItens.popular.data.IMAGE_URL
-import br.bruno.projetointegrador.home.view.tabItens.popular.data.PopularMoives_Repository
+import br.bruno.projetointegrador.home.view.tabItens.popular.data.PopularMoivesRepository
 import br.bruno.projetointegrador.home.view.tabItens.popular.vo.PopularMoviesVO
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
 class PopularMoviesViewModel : ViewModel() {
 
-    private val repository: PopularMoives_Repository = PopularMoives_Repository()
+    private val repository: PopularMoivesRepository = PopularMoivesRepository()
     private val _movieList: MutableLiveData<Result> = MutableLiveData()
     val movieList: LiveData<Result> = _movieList
     var totalPages= 0
@@ -30,7 +30,7 @@ class PopularMoviesViewModel : ViewModel() {
                         overview = it.overview,
                         poster_path = it.poster_path,
                         base_url_image = IMAGE_URL,
-                       // poster_size = config.poster_sizes
+                        id = it.id
                     )
                 }
                 _movieList.value = Result.Success(vo)

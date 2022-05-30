@@ -10,8 +10,8 @@
         android:label="home_fragments"
         tools:layout="@layout/home_fragments" >
         <action
-            android:id="@+id/action_homeFragment_to_favoritosFragment"
-            app:destination="@id/favoritosFragment" />
+            android:id="@+id/action_homeFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment" />
     </fragment>
     <fragment
         android:id="@+id/aboutFragment"
@@ -22,14 +22,19 @@
         android:id="@+id/favoritosFragment"
         android:name="br.bruno.projetointegrador.favorites.view.FavoritosFragment"
         android:label="favoritos_fragments"
-        tools:layout="@layout/favoritos_fragments" >
-        <action
-            android:id="@+id/action_favoritosFragment_to_homeFragment"
-            app:destination="@id/homeFragment" />
-    </fragment>
+        tools:layout="@layout/favoritos_fragments" />
     <fragment
         android:id="@+id/profileFragment"
         android:name="br.bruno.projetointegrador.profile.view.ProfileFragment"
         android:label="profile_fragments"
         tools:layout="@layout/profile_fragments" />
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="br.bruno.projetointegrador.movieDetails.view.MovieDetailsFragment"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details" >
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+    </fragment>
 </navigation>
