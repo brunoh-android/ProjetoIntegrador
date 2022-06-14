@@ -6,5 +6,5 @@ data class MaisVotadosMoviesVO(
     val overview : String,
     val poster_path : String?,
     val base_url_image: String,
-  //  val poster_size : Array<String>
+    val id :Int,
 )

@@ -30,7 +30,7 @@ class EmCartazMoviesViewModel : ViewModel() {
                         overview = it.overview,
                         poster_path = it.poster_path,
                         base_url_image = IMAGE_URL,
-          //              poster_size = config.poster_sizes
+                        id = it.id
                     )
                 }
                 _movieList.value = Result.Success(vo)

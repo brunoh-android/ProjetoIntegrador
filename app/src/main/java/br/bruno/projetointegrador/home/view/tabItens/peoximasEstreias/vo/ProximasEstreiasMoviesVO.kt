@@ -4,7 +4,7 @@ data class ProximasEstreiasMoviesVO (
     val title : String,
     val vote_average: Number,
     val overview : String,
-    val poster_path : String?,
+    val poster_path : String,
     val base_url_image: String,
-  //  val poster_size : Array<String>
+    val id :Int,
 )

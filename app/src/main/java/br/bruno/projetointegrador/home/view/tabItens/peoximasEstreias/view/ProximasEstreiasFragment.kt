@@ -5,8 +5,10 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
+import br.bruno.projetointegrador.home.view.HomeFragmentDirections
 import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.view.adapter.ProximasEstreiasAdapter
 import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.viewModel.ProximasEstreiasMoviesViewModel
 import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.vo.ProximasEstreiasMoviesVO
@@ -45,7 +47,10 @@ class ProximasEstreiasFragment : Fragment(R.layout.fragments_proximas_estreias) 
     }
 
     private fun preperReycclerView(data: List<ProximasEstreiasMoviesVO>, view: View) {
-        view.findViewById<RecyclerView>(R.id.MoviesRV).adapter = ProximasEstreiasAdapter(requireContext(),data)
+        view.findViewById<RecyclerView>(R.id.MoviesRV).adapter = ProximasEstreiasAdapter(requireContext(),data){
+            val direction = HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(it.id)
+            findNavController().navigate(direction)
+        }
 
     }
 
