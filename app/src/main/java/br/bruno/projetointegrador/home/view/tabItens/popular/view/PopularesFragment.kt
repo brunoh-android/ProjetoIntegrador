@@ -9,9 +9,10 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
+import br.bruno.projetointegrador.home.view.HomeFragmentDirections
 import br.bruno.projetointegrador.home.view.tabItens.popular.viewModel.PopularMoviesViewModel
-import br.bruno.projetointegrador.home.view.tabItens.popular.viewModel.Result
-
+import br.bruno.projetointegrador.util.Error
+import br.bruno.projetointegrador.util.Success
 
 
 class PopularesFragment : Fragment(R.layout.fragments_populares) {
@@ -24,8 +25,8 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
     }
     private val adapter : MoviesAdapter by lazy {
         MoviesAdapter(requireContext()){
-
-            findNavController().navigate(R.id.action_homeFragment_to_movieDetailsFragment)
+            val direction = HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(it.id)
+            findNavController().navigate(direction)
         }
     }
 
@@ -46,11 +47,11 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
         viewModel.movieList.observe(viewLifecycleOwner) {
 
             when (it) {
-                is Result.Success -> {
+                is Success -> {
                     adapter.addData(it.data)
                 }
-                is Result.Error -> {
-                    Toast.makeText(requireContext(), Result.Error.genericMsg, Toast.LENGTH_SHORT).show()
+                is Error -> {
+                    Toast.makeText(requireContext(), Error<String>().msg , Toast.LENGTH_SHORT).show()
                 }
             }
         }

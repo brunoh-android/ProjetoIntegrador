@@ -9,6 +9,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.home.view.tabItens.popular.vo.PopularMoviesVO
+import br.bruno.projetointegrador.util.MyGlide
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.RequestOptions
 
@@ -69,16 +70,7 @@ class MoviesViewHolder(
         average.text = movie.vote_average.toString()
         overview.text = movie.overview
 
-        Glide.with(context).asDrawable().load(movie.base_url_image + movie.poster_path)
-            .apply(
-                RequestOptions().override(400, 400).centerInside()
-                    .placeholder(R.drawable.placehoder)
-            ).into(poster)
-
-        //  Glide.with(context).load(movie.base_url_image + movie.poster_path).placeholder(R.drawable.placehoder).fitCenter().into(poster)
-
-
-        // Picasso.with(itemView.context).load("${movie.base_url_image}{movie.poster_size.first()}${movie.poster_path}").into(poster)
+        MyGlide().build(context,movie.base_url_image,movie.poster_path,poster,400,400)
     }
 
 

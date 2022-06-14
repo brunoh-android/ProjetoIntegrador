@@ -13,8 +13,4 @@ class PopularMoivesRepository {
         api.fetchMovieList(page)
     }
 
-   /*
-    suspend fun fetchImage() : ConfigResponse = withContext(Dispatchers.IO){
-        api.fetchImage()
-    }*/
 }

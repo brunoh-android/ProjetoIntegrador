@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.adapter
+package br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.view.adapter
 
 import android.content.Context
 import android.view.LayoutInflater

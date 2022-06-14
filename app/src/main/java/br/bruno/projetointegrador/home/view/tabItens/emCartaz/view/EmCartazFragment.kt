@@ -7,7 +7,7 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.view.tabItens.emCartaz.adapter.EmCartazMoviesAdapter
+import br.bruno.projetointegrador.home.view.tabItens.emCartaz.view.adapter.EmCartazMoviesAdapter
 import br.bruno.projetointegrador.home.view.tabItens.emCartaz.viewModel.EmCartazMoviesViewModel
 import br.bruno.projetointegrador.home.view.tabItens.emCartaz.vo.EmCartazMoviesVO
 import br.bruno.projetointegrador.home.view.tabItens.emCartaz.viewModel.Result
