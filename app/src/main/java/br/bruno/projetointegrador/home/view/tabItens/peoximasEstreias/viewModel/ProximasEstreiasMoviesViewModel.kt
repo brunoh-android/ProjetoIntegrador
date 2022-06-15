@@ -4,9 +4,13 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.bruno.projetointegrador.home.view.tabItens.maisVotados.vo.MaisVotadosMoviesVO
 import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.data.IMAGE_URL
 import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.data.ProximasEstreiasRepository
 import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.vo.ProximasEstreiasMoviesVO
+import br.bruno.projetointegrador.util.Error
+import br.bruno.projetointegrador.util.Result
+import br.bruno.projetointegrador.util.Success
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
@@ -14,14 +18,13 @@ import retrofit2.HttpException
 class ProximasEstreiasMoviesViewModel : ViewModel() {
 private val repository: ProximasEstreiasRepository = ProximasEstreiasRepository()
 
-private val _movieList: MutableLiveData<Result> = MutableLiveData()
-val movieList: LiveData<Result> = _movieList
+private val _movieList: MutableLiveData<Result<List<ProximasEstreiasMoviesVO>>> = MutableLiveData()
+val movieList: LiveData<Result<List<ProximasEstreiasMoviesVO>>> = _movieList
 
 fun fetchMovieList() {
     viewModelScope.launch {
         try {
             val response = repository.fetchMovieList()
-            val config = repository.fetchImage().images
             val vo = response.moviesList.map {
                 ProximasEstreiasMoviesVO(
                     title = it.title,
@@ -32,22 +35,10 @@ fun fetchMovieList() {
                     id = it.id
                 )
             }
-            _movieList.value = Result.Success(vo)
+            _movieList.value = Success(vo)
         } catch (ex: HttpException) {
-            _movieList.value = Result.Error
+            _movieList.value = Error()
         }
     }
 }
-}
-
-
-sealed class Result {
-
-    data class Success(
-        val data: List<ProximasEstreiasMoviesVO>
-    ) : Result()
-
-    object Error : Result() {
-        val genericMsg: String = "Ops, algo deu errado!"
-    }
 }

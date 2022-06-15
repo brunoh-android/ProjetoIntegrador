@@ -7,6 +7,9 @@ import androidx.lifecycle.viewModelScope
 import br.bruno.projetointegrador.home.view.tabItens.maisVotados.data.MaisVotadosMoives_Repository
 import br.bruno.projetointegrador.home.view.tabItens.maisVotados.vo.MaisVotadosMoviesVO
 import br.bruno.projetointegrador.home.view.tabItens.maisVotados.data.IMAGE_URL
+import br.bruno.projetointegrador.util.Error
+import br.bruno.projetointegrador.util.Result
+import br.bruno.projetointegrador.util.Success
 
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -15,14 +18,13 @@ class MaisVotadosMoviesViewModel : ViewModel() {
 
     private val repository: MaisVotadosMoives_Repository = MaisVotadosMoives_Repository()
 
-    private val _movieList: MutableLiveData<Result> = MutableLiveData()
-    val movieList: LiveData<Result> = _movieList
+    private val _movieList: MutableLiveData<Result<List<MaisVotadosMoviesVO>>> = MutableLiveData()
+    val movieList: LiveData<Result<List<MaisVotadosMoviesVO>>> = _movieList
 
     fun fetchMovieList() {
         viewModelScope.launch {
             try {
                 val response = repository.fetchMovieList()
-                val config = repository.fetchImage().images
                 val vo = response.moviesList.map {
                     MaisVotadosMoviesVO(
                         original_title = it.title,
@@ -33,22 +35,11 @@ class MaisVotadosMoviesViewModel : ViewModel() {
                         id = it.id
                     )
                 }
-                _movieList.value = Result.Success(vo)
+                _movieList.value = Success(vo)
             } catch (ex: HttpException) {
-                _movieList.value = Result.Error
+                _movieList.value = Error()
             }
         }
     }
 }
 
-
-sealed class Result {
-
-    data class Success(
-        val data: List<MaisVotadosMoviesVO>
-    ) : Result()
-
-    object Error : Result() {
-        val genericMsg: String = "Ops, algo deu errado!"
-    }
-}

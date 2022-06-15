@@ -12,7 +12,8 @@ import br.bruno.projetointegrador.home.view.HomeFragmentDirections
 import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.view.adapter.ProximasEstreiasAdapter
 import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.viewModel.ProximasEstreiasMoviesViewModel
 import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.vo.ProximasEstreiasMoviesVO
-import br.bruno.projetointegrador.home.view.tabItens.peoximasEstreias.viewModel.Result
+import br.bruno.projetointegrador.util.Error
+import br.bruno.projetointegrador.util.Success
 
 
 class ProximasEstreiasFragment : Fragment(R.layout.fragments_proximas_estreias) {
@@ -34,11 +35,11 @@ class ProximasEstreiasFragment : Fragment(R.layout.fragments_proximas_estreias) 
     private fun setupObserver(view: View) {
         viewModel.movieList.observe(viewLifecycleOwner) {
             when (it) {
-                is Result.Success -> {
+                is Success -> {
                     preperReycclerView(it.data, view)
                 }
-                is Result.Error -> {
-                    Toast.makeText(requireContext(), Result.Error.genericMsg, Toast.LENGTH_SHORT).show()
+                is Error -> {
+                    Toast.makeText(requireContext(), Error<String>().msg, Toast.LENGTH_SHORT).show()
                 }
             }
         }

@@ -7,6 +7,9 @@ import androidx.lifecycle.viewModelScope
 import br.bruno.projetointegrador.home.view.tabItens.emCartaz.data.EmCartazMoviesRepository
 import br.bruno.projetointegrador.home.view.tabItens.emCartaz.data.IMAGE_URL
 import br.bruno.projetointegrador.home.view.tabItens.emCartaz.vo.EmCartazMoviesVO
+import br.bruno.projetointegrador.util.Error
+import br.bruno.projetointegrador.util.Result
+import br.bruno.projetointegrador.util.Success
 
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
@@ -15,14 +18,13 @@ class EmCartazMoviesViewModel : ViewModel() {
 
     private val repository: EmCartazMoviesRepository = EmCartazMoviesRepository()
 
-    private val _movieList: MutableLiveData<Result> = MutableLiveData()
-    val movieList: LiveData<Result> = _movieList
+    private val _movieList: MutableLiveData<Result<List<EmCartazMoviesVO>>> = MutableLiveData()
+    val movieList: LiveData<Result<List<EmCartazMoviesVO>>> = _movieList
 
     fun fetchMovieList() {
         viewModelScope.launch {
             try {
                 val response = repository.fetchMovieList()
-                val config = repository.fetchImage().images
                 val vo = response.moviesList.map {
                     EmCartazMoviesVO(
                         original_title = it.title,
@@ -33,22 +35,11 @@ class EmCartazMoviesViewModel : ViewModel() {
                         id = it.id
                     )
                 }
-                _movieList.value = Result.Success(vo)
+                _movieList.value = Success(vo)
             } catch (ex: HttpException) {
-                _movieList.value = Result.Error
+                _movieList.value = Error()
             }
         }
     }
 }
 
-
-sealed class Result {
-
-    data class Success(
-        val data: List<EmCartazMoviesVO>
-    ) : Result()
-
-    object Error : Result() {
-        val genericMsg: String = "Ops, algo deu errado!"
-    }
-}

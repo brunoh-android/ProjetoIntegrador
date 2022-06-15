@@ -5,13 +5,15 @@ import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
+import br.bruno.projetointegrador.home.view.HomeFragmentDirections
 import br.bruno.projetointegrador.home.view.tabItens.maisVotados.view.adapter.MaisVotadosMoviesAdapter
 import br.bruno.projetointegrador.home.view.tabItens.maisVotados.viewModel.MaisVotadosMoviesViewModel
 import br.bruno.projetointegrador.home.view.tabItens.maisVotados.vo.MaisVotadosMoviesVO
-import br.bruno.projetointegrador.home.view.tabItens.maisVotados.viewModel.Result
-
+import br.bruno.projetointegrador.util.Error
+import br.bruno.projetointegrador.util.Success
 
 
 class MaisVotadoFragment : Fragment(R.layout.fragments_mais_votado) {
@@ -33,11 +35,11 @@ class MaisVotadoFragment : Fragment(R.layout.fragments_mais_votado) {
     private fun setupObserver(view: View) {
         viewModel.movieList.observe(viewLifecycleOwner) {
             when (it) {
-                is Result.Success -> {
+                is Success -> {
                     preperReycclerView(it.data, view)
                 }
-                is Result.Error -> {
-                    Toast.makeText(requireContext(), Result.Error.genericMsg, Toast.LENGTH_SHORT).show()
+                is Error -> {
+                    Toast.makeText(requireContext(), Error<String>().msg, Toast.LENGTH_SHORT).show()
                 }
             }
         }
@@ -46,7 +48,10 @@ class MaisVotadoFragment : Fragment(R.layout.fragments_mais_votado) {
     }
 
     private fun preperReycclerView(data: List<MaisVotadosMoviesVO>, view: View) {
-        view.findViewById<RecyclerView>(R.id.MoviesRV).adapter = MaisVotadosMoviesAdapter(requireContext(),data)
+        view.findViewById<RecyclerView>(R.id.MoviesRV).adapter = MaisVotadosMoviesAdapter(requireContext(),data){
+            val direction = HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(it.id)
+            findNavController().navigate(direction)
+        }
 
     }
 
