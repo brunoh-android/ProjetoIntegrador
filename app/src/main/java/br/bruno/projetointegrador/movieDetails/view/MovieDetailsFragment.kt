@@ -22,9 +22,9 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
     private val viewModel: MovieDetailsViewModel by viewModels()
     private val args: MovieDetailsFragmentArgs by navArgs()
 
-    lateinit var poster: ImageView
-    lateinit var title: TextView
-    lateinit var synopsis: TextView
+    private lateinit var poster: ImageView
+    private lateinit var title: TextView
+    private lateinit var synopsis: TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -33,11 +33,11 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         title = view.findViewById(R.id.tittle_Details)
         synopsis = view.findViewById(R.id.movie_synopsis)
 
-        fecthMovieById(args.id)
+        fetchMovieById(args.id)
         setupObserver()
     }
 
-    private fun fecthMovieById(id: Int) {
+    private fun fetchMovieById(id: Int) {
         viewModel.fecthMovieById(id)
     }
 
