@@ -1,7 +1,7 @@
 package br.bruno.projetointegrador.movieDetails.data
 
-import br.bruno.projetointegrador.home.view.tabItens.popular.data.API_KEY
 import br.bruno.projetointegrador.movieDetails.data.dto.MovieDetailsResponse
+import br.bruno.projetointegrador.utils.API_KEY
 import retrofit2.http.GET
 import retrofit2.http.Path
 

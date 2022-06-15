@@ -1,23 +1,20 @@
 package br.bruno.projetointegrador.movieDetails.view
 
-import android.icu.text.CaseMap
 import android.os.Bundle
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
 import android.view.View
-import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.view.tabItens.popular.data.IMAGE_URL
 import br.bruno.projetointegrador.movieDetails.viewModel.MovieDetailsViewModel
 import br.bruno.projetointegrador.movieDetails.vo.MoviesDetailsVo
-import br.bruno.projetointegrador.util.Error
-import br.bruno.projetointegrador.util.MyGlide
-import br.bruno.projetointegrador.util.Success
+import br.bruno.projetointegrador.utils.Error
+import br.bruno.projetointegrador.utils.IMAGE_URL
+import br.bruno.projetointegrador.utils.MyGlide
+import br.bruno.projetointegrador.utils.Success
 
 
 class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {

@@ -1,7 +1,7 @@
 package br.bruno.projetointegrador.movieDetails.data
 
-import br.bruno.projetointegrador.home.view.tabItens.popular.data.retrofit
 import br.bruno.projetointegrador.movieDetails.data.dto.MovieDetailsResponse
+import br.bruno.projetointegrador.utils.retrofit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import retrofit2.create

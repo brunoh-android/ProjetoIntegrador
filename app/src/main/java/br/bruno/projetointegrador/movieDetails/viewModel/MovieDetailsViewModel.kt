@@ -6,9 +6,9 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import br.bruno.projetointegrador.movieDetails.data.MovieDetailsRepository
 import br.bruno.projetointegrador.movieDetails.vo.MoviesDetailsVo
-import br.bruno.projetointegrador.util.Error
-import br.bruno.projetointegrador.util.Result
-import br.bruno.projetointegrador.util.Success
+import br.bruno.projetointegrador.utils.Error
+import br.bruno.projetointegrador.utils.Result
+import br.bruno.projetointegrador.utils.Success
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
