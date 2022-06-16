@@ -10,5 +10,6 @@
     <string name="Mais_votados3">Mais votados2</string>
     =======
     <string name="meus_filmes_favoritos">Meus filmes favoritos</string>
+    <string name="synopsis">Synopsis</string>
     >>>>>>> feature/favoritos
 </resources>

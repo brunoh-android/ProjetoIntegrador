@@ -6,9 +6,17 @@
     app:startDestination="@id/homeFragment">
     <fragment
         android:id="@+id/homeFragment"
-        android:name="br.bruno.projetointegrador.home.view.HomeFragment"
+        android:name="br.bruno.projetointegrador.home.HomeFragment"
         android:label="home_fragments"
-        tools:layout="@layout/home_fragments" />
+        tools:layout="@layout/home_fragments" >
+        <action
+            android:id="@+id/action_homeFragment_to_movieDetailsFragment"
+            app:destination="@id/movieDetailsFragment">
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </action>
+    </fragment>
     <fragment
         android:id="@+id/aboutFragment"
         android:name="br.bruno.projetointegrador.about.view.AboutFragment"
@@ -24,4 +32,16 @@
         android:name="br.bruno.projetointegrador.profile.view.ProfileFragment"
         android:label="profile_fragments"
         tools:layout="@layout/profile_fragments" />
+    <fragment
+        android:id="@+id/movieDetailsFragment"
+        android:name="br.bruno.projetointegrador.movieDetails.view.MovieDetailsFragment"
+        android:label="fragment_movie_details"
+        tools:layout="@layout/fragment_movie_details" >
+        <action
+            android:id="@+id/action_movieDetailsFragment_to_homeFragment"
+            app:destination="@id/homeFragment" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>
