@@ -25,6 +25,8 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
     private lateinit var poster: ImageView
     private lateinit var title: TextView
     private lateinit var synopsis: TextView
+    private lateinit var voteAverage : TextView
+    private lateinit var realeseDate : TextView
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -32,6 +34,8 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         poster = view.findViewById(R.id.header_detailsImage)
         title = view.findViewById(R.id.tittle_Details)
         synopsis = view.findViewById(R.id.movie_synopsis)
+        voteAverage = view.findViewById(R.id.voteAverage)
+        realeseDate = view.findViewById(R.id.releaseDate)
 
         fetchMovieById(args.id)
         setupObserver()
@@ -60,12 +64,14 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
     }
 
     private fun setupView(movie: MoviesDetailsVo) {
-        title.text = movie.movie_tittle
+        title.text = movie.tittle
         synopsis.text = movie.movie_synopsis
+        voteAverage.text = movie.vote_average.toString()
+        realeseDate.text = movie.release_date
         MyGlide().build(
             requireContext(),
             IMAGE_URL,
-            movie.image_url,
+            movie.backdrop_path,
             poster,
             poster.width,
             poster.height
