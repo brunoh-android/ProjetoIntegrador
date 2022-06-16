@@ -62,7 +62,14 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
     private fun setupView(movie: MoviesDetailsVo) {
         title.text = movie.movie_tittle
         synopsis.text = movie.movie_synopsis
-        MyGlide().build(requireContext(), IMAGE_URL,movie.image_url,poster,poster.width,poster.height)
+        MyGlide().build(
+            requireContext(),
+            IMAGE_URL,
+            movie.image_url,
+            poster,
+            poster.width,
+            poster.height
+        )
     }
 
 }

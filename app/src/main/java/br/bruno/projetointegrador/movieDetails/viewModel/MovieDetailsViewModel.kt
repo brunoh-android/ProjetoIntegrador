@@ -26,7 +26,12 @@ class MovieDetailsViewModel : ViewModel() {
                 val vo = MoviesDetailsVo(
                     image_url = response.poster_path,
                     movie_synopsis = response.overview,
-                    movie_tittle = response.original_title
+                    movie_tittle = response.original_title,
+                    backdrop_path = response.backdrop_path,
+                    popularity = response.popularity,
+                    tittle = response.title,
+                    release_date = response.release_date,
+                    vote_average = response.vote_average,
                 )
                 _movieDetail.value = Success(vo)
             } catch (ex: HttpException) {
