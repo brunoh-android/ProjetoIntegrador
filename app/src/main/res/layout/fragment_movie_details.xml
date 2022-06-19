@@ -35,7 +35,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toStartOf="@+id/releaseDate"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
@@ -48,7 +48,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="6dp"
         android:textColor="@color/black"
-        android:textSize="20sp"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/voteAverage"
@@ -78,4 +78,16 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tittle_synopsis" />
+
+    <Button
+        android:id="@+id/Add_to_Fav_btn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Adicionar aos favoritos"
+        android:textSize="12sp"
+        app:layout_constraintBottom_toTopOf="@+id/movie_synopsis"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/tittle_synopsis"
+        app:layout_constraintTop_toBottomOf="@+id/releaseDate" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

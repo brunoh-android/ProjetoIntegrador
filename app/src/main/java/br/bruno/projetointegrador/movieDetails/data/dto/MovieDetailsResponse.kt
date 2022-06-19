@@ -9,4 +9,5 @@ data class MovieDetailsResponse(
     val popularity: Number,
     val vote_average: Number,
     val release_date: String,
+    val id : Int,
 )

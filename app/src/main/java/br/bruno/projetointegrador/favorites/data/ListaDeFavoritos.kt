@@ -1,6 +1,4 @@
-package br.bruno.projetointegrador.favorites.model
-
-import android.widget.ImageView
+package br.bruno.projetointegrador.favorites.data
 
 data class ListaDeFavoritos(
     val movieTittle : String,

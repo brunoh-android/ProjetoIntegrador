@@ -4,6 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import br.bruno.projetointegrador.favorites.data.FavMovieVo
 import br.bruno.projetointegrador.movieDetails.data.MovieDetailsRepository
 import br.bruno.projetointegrador.movieDetails.vo.MoviesDetailsVo
 import br.bruno.projetointegrador.utils.Error
@@ -18,6 +19,10 @@ class MovieDetailsViewModel : ViewModel() {
 
     private val _movieDetail: MutableLiveData<Result<MoviesDetailsVo>> = MutableLiveData()
     val movieDatail: LiveData<Result<MoviesDetailsVo>> = _movieDetail
+
+    private val _favMovie : MutableLiveData<Result<FavMovieVo>> = MutableLiveData()
+    val favMovie : LiveData<Result<FavMovieVo>> = _favMovie
+
 
     fun fecthMovieById(id: Int) {
         viewModelScope.launch {
@@ -36,6 +41,22 @@ class MovieDetailsViewModel : ViewModel() {
                 _movieDetail.value = Success(vo)
             } catch (ex: HttpException) {
                 _movieDetail.value = Error()
+            }
+        }
+    }
+
+    fun addToFav(id: Int) {
+        viewModelScope.launch {
+            try {
+                val response = repository.fetchMovieById(id)
+                val vo = FavMovieVo(
+                    tittle = response.title,
+                    poster_path = response.poster_path,
+                    id = response.id.toString()
+                )
+                _favMovie.value = Success(vo)
+            } catch (ex: HttpException) {
+                _favMovie.value = Error()
             }
         }
     }

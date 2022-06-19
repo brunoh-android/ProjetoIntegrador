@@ -6,7 +6,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import br.bruno.projetointegrador.favorites.model.ListaDeFavoritos
+import br.bruno.projetointegrador.favorites.data.ListaDeFavoritos
 import br.bruno.projetointegrador.R
 
 class FavoritosRvAdpter(

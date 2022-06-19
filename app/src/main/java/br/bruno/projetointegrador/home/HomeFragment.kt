@@ -4,7 +4,7 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.favorites.view.ViewPagerAdapter
+import br.bruno.projetointegrador.home.tabItens.ViewPagerAdapter
 import br.bruno.projetointegrador.home.tabItens.emCartaz.view.EmCartazFragment
 import br.bruno.projetointegrador.home.tabItens.maisVotados.view.MaisVotadoFragment
 import br.bruno.projetointegrador.home.tabItens.popular.view.PopularesFragment
