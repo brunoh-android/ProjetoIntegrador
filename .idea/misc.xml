@@ -4,6 +4,8 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="..\:/EstudosDH/ProjetoIntegrador/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.307" />
+        <entry key="..\:/EstudosDH/ProjetoIntegrador/app/src/main/res/drawable/button_sign.xml" value="0.265" />
+        <entry key="..\:/EstudosDH/ProjetoIntegrador/app/src/main/res/drawable/email_senha.xml" value="0.265" />
         <entry key="..\:/EstudosDH/ProjetoIntegrador/app/src/main/res/drawable/ic_favorite.xml" value="0.307" />
         <entry key="..\:/EstudosDH/ProjetoIntegrador/app/src/main/res/drawable/ic_home.xml" value="0.307" />
         <entry key="..\:/EstudosDH/ProjetoIntegrador/app/src/main/res/drawable/ic_info.xml" value="0.307" />

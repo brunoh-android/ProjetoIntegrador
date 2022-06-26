@@ -11,7 +11,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.favorites.data.FavMovieVo
+import br.bruno.projetointegrador.favorites.data.FavMovie
 import br.bruno.projetointegrador.movieDetails.viewModel.MovieDetailsViewModel
 import br.bruno.projetointegrador.movieDetails.vo.MoviesDetailsVo
 import br.bruno.projetointegrador.utils.*
@@ -48,7 +48,8 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
 
     private fun setupClickers() {
         addToFavBtn.setOnClickListener {
-            viewModel.addToFav(args.id)
+            viewModel.addToFav(args.id,requireContext())
+            findNavController().navigate(R.id.action_movieDetailsFragment_to_favoritosFragment)
         }
     }
 
@@ -72,29 +73,8 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
                 ).show()
             }
         }
-
-        viewModel.favMovie.observe(viewLifecycleOwner) { movie ->
-            when (movie) {
-                is Success -> sendToFavList(movie.data)
-                else -> Toast.makeText(
-                    requireContext(),
-                    "Algo alem do erro ocorreu",
-                    Toast.LENGTH_SHORT
-                ).show()
-            }
-        }
-
     }
 
-    private fun sendToFavList(movie: FavMovieVo) {
-        val directions =
-            MovieDetailsFragmentDirections.actionMovieDetailsFragmentToFavoritosFragment(
-                movie.tittle,
-                movie.poster_path,
-                movie.id.toInt()
-            )
-        findNavController().navigate(directions)
-    }
 
     private fun setupView(movie: MoviesDetailsVo) {
         title.text = movie.tittle

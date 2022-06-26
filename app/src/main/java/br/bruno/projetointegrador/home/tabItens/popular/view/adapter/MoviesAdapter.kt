@@ -30,7 +30,6 @@ class MoviesAdapter(
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.popular_moives_item, parent, false)
 
-
         return MoviesViewHolder(context, itemView) {
             clickListener(movies[it])
         }
@@ -39,7 +38,6 @@ class MoviesAdapter(
     override fun onBindViewHolder(holder: MoviesViewHolder, position: Int) {
         val movie = movies[position]
         holder.bind(movie)
-
     }
 
     override fun getItemCount(): Int = movies.size
@@ -58,8 +56,8 @@ class MoviesViewHolder(
     private val poster = itemView.findViewById<ImageView>(R.id.poster_iv)
 
     init {
-        itemView.setOnClickListener{
-                clickAtPosition(adapterPosition)
+        itemView.setOnClickListener {
+            clickAtPosition(adapterPosition)
         }
     }
 
@@ -69,7 +67,7 @@ class MoviesViewHolder(
         average.text = movie.vote_average.toString()
         overview.text = movie.overview
 
-        MyGlide().build(context, IMAGE_URL,movie.poster_path,poster,400,400)
+        MyGlide().build(context, IMAGE_URL, movie.poster_path, poster, 400, 400)
     }
 
 

@@ -33,7 +33,6 @@ class ProximasEstreiasAdapter(
     override fun onBindViewHolder(holder: ProximasEstreiasMoviesViewHolder, position: Int) {
         val movie = movies[position]
         holder.bind(movie)
-
     }
 
     override fun getItemCount(): Int = movies.size
