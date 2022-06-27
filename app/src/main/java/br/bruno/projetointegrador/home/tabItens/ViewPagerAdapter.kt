@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.favorites.view
+package br.bruno.projetointegrador.home.tabItens
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
