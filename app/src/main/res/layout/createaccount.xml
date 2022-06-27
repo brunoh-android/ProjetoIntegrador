@@ -3,21 +3,23 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    tools:layout_editor_absoluteX="-11dp"
+    tools:layout_editor_absoluteY="0dp">
 
     <Button
-        android:id="@+id/btnesquecisenha"
+        android:id="@+id/btncadastrarlogin"
         android:layout_width="344dp"
         android:layout_height="50dp"
-        android:layout_marginTop="32dp"
+        android:layout_marginTop="30dp"
         android:background="#01b4e4"
         android:backgroundTint="#01b4e4"
-        android:text="CONTINUE"
+        android:text="CADASTRAR USUARIO"
         android:textColor="@color/colorOnPrimary"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/email" />
+        app:layout_constraintTop_toBottomOf="@+id/password" />
 
     <EditText
         android:id="@+id/lastname"
@@ -36,16 +38,16 @@
         android:id="@+id/email"
         android:layout_width="344dp"
         android:layout_height="47dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="20dp"
         android:clipToOutline="true"
         android:ems="10"
         android:hint="E-mail"
         android:inputType="textEmailAddress"
         android:textColorHint="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintHorizontal_bias="0.328"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/lastname"
+        app:layout_constraintTop_toBottomOf="@+id/telefone"
         tools:ignore="TouchTargetSizeCheck" />
 
     <TextView
@@ -78,15 +80,42 @@
         android:id="@+id/textView6"
         android:layout_width="344dp"
         android:layout_height="28dp"
-        android:layout_marginTop="124dp"
+        android:layout_marginTop="60dp"
         android:text="Enter your name and email adress"
         android:textColor="@color/black"
         android:textSize="24dp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.326"
+        app:layout_constraintHorizontal_bias="0.238"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <EditText
+        android:id="@+id/telefone"
+        android:layout_width="344dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="24dp"
+        android:ems="10"
+        android:hint="Phone"
+        android:inputType="phone"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/lastname" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="344dp"
+        android:layout_height="47dp"
+        android:layout_marginTop="28dp"
+        android:clipToOutline="true"
+        android:ems="10"
+        android:hint="Password"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.328"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/email"
+        tools:ignore="TouchTargetSizeCheck" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
