@@ -23,8 +23,8 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
     private val totalPage by lazy {
         viewModel.totalPages
     }
-    private val adapter : MoviesAdapter by lazy {
-        MoviesAdapter(requireContext()){
+    private val adapter: MoviesAdapter by lazy {
+        MoviesAdapter(requireContext()) {
             val direction = HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(it.id)
             findNavController().navigate(direction)
         }
@@ -47,12 +47,12 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
         viewModel.movieList.observe(viewLifecycleOwner) {
 
             when (it) {
-                is Success -> {
-                    adapter.addData(it.data)
-                }
-                is Error -> {
-                    Toast.makeText(requireContext(), Error<String>().msg , Toast.LENGTH_SHORT).show()
-                }
+                is Success -> adapter.addData(it.data)
+                is Error -> Toast.makeText(
+                    requireContext(),
+                    Error<String>().msg,
+                    Toast.LENGTH_SHORT
+                ).show()
             }
         }
 
@@ -61,7 +61,7 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
     private fun preperReycclerView(view: View) {
         view.findViewById<RecyclerView>(R.id.MoviesRV).apply {
             this.adapter = this@PopularesFragment.adapter
-            addOnScrollListener(object : RecyclerView.OnScrollListener(){
+            addOnScrollListener(object : RecyclerView.OnScrollListener() {
 
 
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
@@ -69,12 +69,12 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
                     val target = recyclerView.layoutManager as LinearLayoutManager?
                     val totalItemCount = target!!.itemCount
                     val lastVisible = target.findLastVisibleItemPosition()
-                    val lastItem= lastVisible +1 >= totalItemCount
+                    val lastItem = lastVisible + 1 >= totalItemCount
 
-                    if (totalItemCount > 0 && lastItem){
+                    if (totalItemCount > 0 && lastItem) {
                         page++
-                        if(page<=totalPage)
-                        viewModel.fetchMovieList(page)
+                        if (page <= totalPage)
+                            viewModel.fetchMovieList(page)
                     }
                 }
 
@@ -82,7 +82,6 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
         }
 
     }
-
 
 
 }
