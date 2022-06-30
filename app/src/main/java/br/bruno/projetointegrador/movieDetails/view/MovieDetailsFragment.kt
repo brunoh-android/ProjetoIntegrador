@@ -49,12 +49,16 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
     private fun setupClickers() {
         addToFavBtn.setOnClickListener {
             viewModel.addToFav(args.id,requireContext())
-            findNavController().navigate(R.id.action_movieDetailsFragment_to_favoritosFragment)
         }
     }
 
     private fun fetchMovieById(id: Int) {
         viewModel.fecthMovieById(id)
+    }
+
+    private fun goToFavFragment(favMovie: FavMovie){
+        val directions = MovieDetailsFragmentDirections.actionMovieDetailsFragmentToFavoritosFragment(favMovie.title,favMovie.poster_path,favMovie.id)
+        findNavController().navigate(directions)
     }
 
     private fun setupObserver() {
@@ -71,6 +75,15 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
                     "Algo alem do erro ocorreu",
                     Toast.LENGTH_SHORT
                 ).show()
+            }
+        }
+        viewModel.favMovie.observe(viewLifecycleOwner) {movie ->
+            when(movie) {
+                is Success -> goToFavFragment(movie.data)
+                else -> Toast.makeText(
+                    requireContext(),
+                    "Algo alem do erro ocorreu",
+                    Toast.LENGTH_SHORT).show()
             }
         }
     }

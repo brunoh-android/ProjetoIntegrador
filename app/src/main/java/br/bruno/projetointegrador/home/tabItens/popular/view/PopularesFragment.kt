@@ -24,7 +24,7 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
         viewModel.totalPages
     }
     private val adapter: MoviesAdapter by lazy {
-        MoviesAdapter(requireContext()) {
+        MoviesAdapter() {
             val direction = HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(it.id)
             findNavController().navigate(direction)
         }
