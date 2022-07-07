@@ -72,19 +72,20 @@
         android:id="@+id/movie_synopsis"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:padding="6dp"
         android:layout_marginTop="20dp"
+        android:padding="6dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/tittle_synopsis" />
+        app:layout_constraintTop_toBottomOf="@+id/tittle_synopsis"
+        app:layout_constraintVertical_bias="0.0" />
 
-    <Button
+    <CheckBox
         android:id="@+id/Add_to_Fav_btn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Adicionar aos favoritos"
-        android:textSize="12sp"
+        android:button="@drawable/selector_favorist_item"
         app:layout_constraintBottom_toTopOf="@+id/movie_synopsis"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/tittle_synopsis"

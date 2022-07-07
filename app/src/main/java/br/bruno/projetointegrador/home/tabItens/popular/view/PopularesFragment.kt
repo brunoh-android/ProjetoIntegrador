@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.HomeFragmentDirections
+import br.bruno.projetointegrador.home.MoviesFragmentDirections
 import br.bruno.projetointegrador.home.tabItens.popular.viewModel.PopularMoviesViewModel
 import br.bruno.projetointegrador.utils.Error
 import br.bruno.projetointegrador.utils.Success
@@ -25,7 +25,7 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
     }
     private val adapter: MoviesAdapter by lazy {
         MoviesAdapter() {
-            val direction = HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(it.id)
+            val direction = MoviesFragmentDirections.actionGlobalMovieDetailsFragment(it.id)
             findNavController().navigate(direction)
         }
     }

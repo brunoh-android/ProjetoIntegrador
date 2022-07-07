@@ -22,19 +22,25 @@ class FavRepository {
         }
 
     suspend fun addFav(context: Context, favMovie: FavMovie) {
-        withContext<Any>(Dispatchers.IO) {
+        withContext<Unit>(Dispatchers.IO) {
             suspendCoroutine {
-                database(context).favMovieDAO().insert(favMovie)
+                it.resume(database(context).favMovieDAO().insert(favMovie))
             }
         }
     }
 
     suspend fun delete(context: Context, favMovie: FavMovie) {
-        withContext<Any>(Dispatchers.IO) {
+        withContext<Unit>(Dispatchers.IO) {
             suspendCoroutine {
-                database(context).favMovieDAO().delete(favMovie)
+                it.resume(database(context).favMovieDAO().delete(favMovie))
             }
         }
     }
 
+    suspend fun findById(context: Context, id: Int): FavMovie =
+        withContext(Dispatchers.IO) {
+            suspendCoroutine {
+                it.resume(database(context).favMovieDAO().findById(id))
+            }
+        }
 }

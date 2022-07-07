@@ -22,7 +22,8 @@ class FavMovieAdapter(
 
     private val movies: MutableList<FavMovie> = emptyList<FavMovie>().toMutableList()
 
-    fun addData(movie: List<FavMovie>) {
+    fun updateData(movie: List<FavMovie>) {
+        movies.clear()
         movies.addAll(movie)
         notifyDataSetChanged()
     }
