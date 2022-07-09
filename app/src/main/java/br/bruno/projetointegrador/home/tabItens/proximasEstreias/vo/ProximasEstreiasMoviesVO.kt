@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.home.tabItens.peoximasEstreias.vo
+package br.bruno.projetointegrador.home.tabItens.proximasEstreias.vo
 
 data class ProximasEstreiasMoviesVO (
     val title : String,

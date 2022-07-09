@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.home.tabItens.peoximasEstreias.view.adapter
+package br.bruno.projetointegrador.home.tabItens.proximasEstreias.view.adapter
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -8,11 +8,9 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.tabItens.peoximasEstreias.vo.ProximasEstreiasMoviesVO
+import br.bruno.projetointegrador.home.tabItens.proximasEstreias.vo.ProximasEstreiasMoviesVO
 import br.bruno.projetointegrador.utils.IMAGE_URL
 import br.bruno.projetointegrador.utils.MyGlide
-import com.bumptech.glide.Glide
-import com.bumptech.glide.request.RequestOptions
 
 class ProximasEstreiasAdapter(
     private val context: Context,

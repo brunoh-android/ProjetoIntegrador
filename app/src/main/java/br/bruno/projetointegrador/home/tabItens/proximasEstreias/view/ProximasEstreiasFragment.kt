@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.home.tabItens.peoximasEstreias.view
+package br.bruno.projetointegrador.home.tabItens.proximasEstreias.view
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -9,9 +9,9 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.home.HomeFragmentDirections
-import br.bruno.projetointegrador.home.tabItens.peoximasEstreias.view.adapter.ProximasEstreiasAdapter
-import br.bruno.projetointegrador.home.tabItens.peoximasEstreias.viewModel.ProximasEstreiasMoviesViewModel
-import br.bruno.projetointegrador.home.tabItens.peoximasEstreias.vo.ProximasEstreiasMoviesVO
+import br.bruno.projetointegrador.home.tabItens.proximasEstreias.view.adapter.ProximasEstreiasAdapter
+import br.bruno.projetointegrador.home.tabItens.proximasEstreias.viewModel.ProximasEstreiasMoviesViewModel
+import br.bruno.projetointegrador.home.tabItens.proximasEstreias.vo.ProximasEstreiasMoviesVO
 import br.bruno.projetointegrador.utils.Error
 import br.bruno.projetointegrador.utils.Success
 

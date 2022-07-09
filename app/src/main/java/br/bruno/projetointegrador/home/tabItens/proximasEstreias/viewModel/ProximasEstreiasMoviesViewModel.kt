@@ -1,11 +1,11 @@
-package br.bruno.projetointegrador.home.tabItens.peoximasEstreias.viewModel
+package br.bruno.projetointegrador.home.tabItens.proximasEstreias.viewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import br.bruno.projetointegrador.home.tabItens.peoximasEstreias.data.ProximasEstreiasRepository
-import br.bruno.projetointegrador.home.tabItens.peoximasEstreias.vo.ProximasEstreiasMoviesVO
+import br.bruno.projetointegrador.home.tabItens.proximasEstreias.data.ProximasEstreiasRepository
+import br.bruno.projetointegrador.home.tabItens.proximasEstreias.vo.ProximasEstreiasMoviesVO
 import br.bruno.projetointegrador.utils.Error
 import br.bruno.projetointegrador.utils.Result
 import br.bruno.projetointegrador.utils.Success

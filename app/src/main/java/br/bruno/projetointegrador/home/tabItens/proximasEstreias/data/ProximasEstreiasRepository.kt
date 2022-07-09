@@ -1,7 +1,6 @@
-package br.bruno.projetointegrador.home.tabItens.peoximasEstreias.data
+package br.bruno.projetointegrador.home.tabItens.proximasEstreias.data
 
-import br.bruno.projetointegrador.home.tabItens.peoximasEstreias.data.dto.ProximasEstreiasMoviesResponse
-import br.bruno.projetointegrador.home.tabItens.popular.data.PopularTMDBApi
+import br.bruno.projetointegrador.home.tabItens.proximasEstreias.data.dto.ProximasEstreiasMoviesResponse
 import br.bruno.projetointegrador.utils.retrofit
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext

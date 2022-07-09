@@ -1,4 +1,4 @@
-package br.bruno.projetointegrador.home.tabItens.peoximasEstreias.data.dto
+package br.bruno.projetointegrador.home.tabItens.proximasEstreias.data.dto
 
 
 import com.google.gson.annotations.SerializedName
