@@ -1,4 +1,5 @@
 package br.bruno.projetointegrador.login.ui
 
-class FragmentMain {
-}
+import androidx.fragment.app.Fragment
+
+class FragmentMain : Fragment(R.layout.fragment_main)

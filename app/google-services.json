@@ -1,41 +1,41 @@
 {
   "project_info": {
-    "project_number": "287529189883",
-    "project_id": "projetointegrador-8831d",
-    "storage_bucket": "projetointegrador-8831d.appspot.com"
+    "project_number": "1084202733015",
+    "project_id": "projetointegrador-b9dd5",
+    "storage_bucket": "projetointegrador-b9dd5.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:287529189883:android:098110efa3579271ea0b5e",
+        "mobilesdk_app_id": "1:1084202733015:android:84d62467cde150f2b04f92",
         "android_client_info": {
           "package_name": "br.bruno.projetointegrador"
         }
       },
       "oauth_client": [
         {
-          "client_id": "287529189883-o3pl5l0l7df6tjqficnbaso7gblap15k.apps.googleusercontent.com",
+          "client_id": "1084202733015-4cvmpmsquq41or8nln509ta5knqigf0n.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "br.bruno.projetointegrador",
-            "certificate_hash": "8d0fac1996066d4c2f8e3fdd8dc45568ced2d89d"
+            "certificate_hash": "d6f10a0f7d92feecbe3afb414d10c5ce3d0b7be5"
           }
         },
         {
-          "client_id": "287529189883-9396vdfad95gnkc5sh02cebk0t4p3h4i.apps.googleusercontent.com",
+          "client_id": "1084202733015-rtnukuvusdq41g0sk7qqq05gnvr2lh6n.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBUvBbgpdQBULTTBydpDD0Q_nDOI_9TLgk"
+          "current_key": "AIzaSyBH8OKLKO8hfxX8L_FNWCMAPDHdTel_2wo"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "287529189883-9396vdfad95gnkc5sh02cebk0t4p3h4i.apps.googleusercontent.com",
+              "client_id": "1084202733015-rtnukuvusdq41g0sk7qqq05gnvr2lh6n.apps.googleusercontent.com",
               "client_type": 3
             }
           ]

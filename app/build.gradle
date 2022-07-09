@@ -3,7 +3,6 @@ plugins {
     id 'org.jetbrains.kotlin.android'
     id 'androidx.navigation.safeargs.kotlin'
     id 'kotlin-kapt'
-    id 'com.google.gms.google-services'
 }
 
 android {
@@ -25,6 +24,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
         }
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
@@ -53,6 +53,30 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
+
+    // IMPLEMENTAÇÃO LOGIN DIEGO
+
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+
+    // Required only if Facebook login support is required
+    // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
+    implementation 'com.facebook.android:facebook-android-sdk:8.x'
+    
+    // IMPLEMENTAÇÃO LOGIN DIEGO
+
+    // Required only if Facebook login support is required
+    // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
+    implementation 'com.facebook.android:facebook-android-sdk:8.x'
+
+    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
+    implementation "com.google.firebase:firebase-auth:21.0.6"
+
+    // Required only if Facebook login support is required
+    // Find the latest Facebook SDK releases here: https://goo.gl/Ce5L94
+    implementation 'com.facebook.android:facebook-android-sdk:8.x'
+
+    //Cirecular Image View 3rd party library
+    implementation 'de.hdodenhof:circleimageview:2.2.0'
 
 
     // Retrofit
