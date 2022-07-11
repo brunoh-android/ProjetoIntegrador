@@ -1,8 +1,6 @@
-package br.bruno.projetointegrador.home.data.dto
+package br.bruno.projetointegrador.home.viewObjets
 
-import com.google.gson.annotations.SerializedName
-
-data class MovieDTO(
+data class PopularMoviesVO(
     val title : String,
     val vote_average: Number,
     val overview : String,

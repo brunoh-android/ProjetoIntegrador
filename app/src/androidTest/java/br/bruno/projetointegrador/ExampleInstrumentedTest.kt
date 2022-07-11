@@ -2,10 +2,10 @@ package br.bruno.projetointegrador
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import br.bruno.projetointegrador.home.emCartaz.view.EmCartazFragment
-import br.bruno.projetointegrador.home.maisVotados.view.MaisVotadoFragment
-import br.bruno.projetointegrador.home.popular.view.PopularesFragment
-import br.bruno.projetointegrador.home.proximasEstreias.view.ProximasEstreiasFragment
+import br.bruno.projetointegrador.home.view.EmCartazFragment
+import br.bruno.projetointegrador.home.view.MaisVotadoFragment
+import br.bruno.projetointegrador.home.view.PopularesFragment
+import br.bruno.projetointegrador.home.tabItens.peoximasEstreias.view.ProximasEstreiasFragment
 import junit.framework.Assert
 
 import org.junit.Test

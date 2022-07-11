@@ -5,12 +5,10 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.favorites.data.FavMovie
 import br.bruno.projetointegrador.favorites.viewModel.FavViewModel
-import br.bruno.projetointegrador.home.MoviesFragmentDirections
 import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Success
 
