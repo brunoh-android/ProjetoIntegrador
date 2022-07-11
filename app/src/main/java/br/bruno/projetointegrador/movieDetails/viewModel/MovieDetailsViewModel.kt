@@ -1,6 +1,7 @@
 package br.bruno.projetointegrador.movieDetails.viewModel
 
 import android.content.Context
+import android.provider.ContactsContract
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -10,6 +11,7 @@ import br.bruno.projetointegrador.favorites.data.FavRepository
 import br.bruno.projetointegrador.movieDetails.data.MovieDetailsRepository
 import br.bruno.projetointegrador.movieDetails.vo.MoviesDetailsVo
 import br.bruno.projetointegrador.utils.Error
+import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Result
 import br.bruno.projetointegrador.utils.Success
 import kotlinx.coroutines.launch
@@ -49,6 +51,7 @@ class MovieDetailsViewModel : ViewModel() {
     }
 
     fun addToFav(id: Int, context: Context) {
+        _favMovie.value = Loading()
         viewModelScope.launch {
             try {
                 val response = repository.fetchMovieById(id)

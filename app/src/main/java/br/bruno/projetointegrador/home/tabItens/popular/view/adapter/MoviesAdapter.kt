@@ -13,7 +13,6 @@ import br.bruno.projetointegrador.utils.IMAGE_URL
 import br.bruno.projetointegrador.utils.MyGlide
 
 class MoviesAdapter(
-    private val context: Context,
     private val clickListener: (PopularMoviesVO) -> Unit,
 
     ) :
@@ -30,7 +29,7 @@ class MoviesAdapter(
         val itemView = LayoutInflater.from(parent.context)
             .inflate(R.layout.popular_moives_item, parent, false)
 
-        return MoviesViewHolder(context, itemView) {
+        return MoviesViewHolder(itemView) {
             clickListener(movies[it])
         }
     }
@@ -45,7 +44,6 @@ class MoviesAdapter(
 }
 
 class MoviesViewHolder(
-    private val context: Context,
     itemView: View,
     clickAtPosition: (Int) -> Unit
 ) : RecyclerView.ViewHolder(itemView) {
@@ -67,7 +65,7 @@ class MoviesViewHolder(
         average.text = movie.vote_average.toString()
         overview.text = movie.overview
 
-        MyGlide().build(context, IMAGE_URL, movie.poster_path, poster, 400, 400)
+        MyGlide().build(itemView.context, IMAGE_URL, movie.poster_path, poster, 400, 400)
     }
 
 
