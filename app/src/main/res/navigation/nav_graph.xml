@@ -7,12 +7,12 @@
 
     <fragment
         android:id="@+id/homeFragment"
-        android:name="br.bruno.projetointegrador.home.HomeFragment"
+        android:name="br.bruno.projetointegrador.home.view.HomeFragment"
         android:label="home_fragments"
         tools:layout="@layout/home_fragments" />
     <fragment
         android:id="@+id/aboutFragment"
-        android:name="br.bruno.projetointegrador.about.view.AboutFragment"
+        android:name="br.bruno.projetointegrador.about.AboutFragment"
         android:label="about_fragments"
         tools:layout="@layout/about_fragments" />
     <fragment

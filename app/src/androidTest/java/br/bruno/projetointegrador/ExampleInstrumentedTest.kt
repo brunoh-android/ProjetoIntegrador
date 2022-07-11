@@ -1,20 +1,17 @@
 package br.bruno.projetointegrador
 
-import androidx.test.espresso.Espresso.onView
-import androidx.test.espresso.matcher.ViewMatchers.withId
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4
-import br.bruno.projetointegrador.home.tabItens.emCartaz.view.EmCartazFragment
-import br.bruno.projetointegrador.home.tabItens.maisVotados.view.MaisVotadoFragment
-import br.bruno.projetointegrador.home.tabItens.popular.view.PopularesFragment
-import br.bruno.projetointegrador.home.tabItens.proximasEstreias.view.ProximasEstreiasFragment
+import br.bruno.projetointegrador.home.emCartaz.view.EmCartazFragment
+import br.bruno.projetointegrador.home.maisVotados.view.MaisVotadoFragment
+import br.bruno.projetointegrador.home.popular.view.PopularesFragment
+import br.bruno.projetointegrador.home.proximasEstreias.view.ProximasEstreiasFragment
 import junit.framework.Assert
 
 import org.junit.Test
 import org.junit.runner.RunWith
 
 import org.junit.Assert.*
-import java.util.regex.Pattern.matches
 
 
 @RunWith(AndroidJUnit4::class)

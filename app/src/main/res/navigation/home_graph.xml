@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/movieFragment"
-        android:name="br.bruno.projetointegrador.home.MoviesFragment"
+        android:name="br.bruno.projetointegrador.home.view.MoviesFragment"
         tools:layout="@layout/movies_fragments"/>
 
     <fragment
