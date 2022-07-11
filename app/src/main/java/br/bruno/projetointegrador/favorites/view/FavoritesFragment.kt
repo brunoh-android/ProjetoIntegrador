@@ -15,13 +15,13 @@ import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Success
 
 
-class FavoritosFragment : Fragment(R.layout.favoritos_fragments) {
+class FavoritesFragment : Fragment(R.layout.favoritos_fragments) {
 
     private val viewModel: FavViewModel by viewModels()
     private val adapter: FavMovieAdapter by lazy {
-        FavMovieAdapter(requireContext(), ::onDeleteClicked) {
-            val direction = MoviesFragmentDirections.actionGlobalMovieDetailsFragment(it.id)
-            findNavController().navigate(direction)
+        FavMovieAdapter(::onDeleteClicked) { movie ->
+            //val direction = MoviesFragmentDirections.actionGlobalMovieDetailsFragment(movie.id)
+            //findNavController().navigate(direction)
         }
     }
 

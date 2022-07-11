@@ -5,13 +5,10 @@
     android:id="@+id/home_graph"
     app:startDestination="@id/movieFragment">
 
-    <include app:graph="@navigation/nav_graph"/>
-
     <fragment
         android:id="@+id/movieFragment"
         android:name="br.bruno.projetointegrador.home.MoviesFragment"
-        tools:layout="@layout/movies_fragments">
-    </fragment>
+        tools:layout="@layout/movies_fragments"/>
 
     <fragment
         android:id="@+id/movieDetailsFragment"
@@ -21,14 +18,11 @@
         <argument
             android:name="id"
             app:argType="integer" />
-        <action
-            android:id="@+id/goToFav"
-            app:destination="@+id/nav_graph"/>
-
     </fragment>
+
     <action
         android:id="@+id/action_global_movieDetailsFragment"
-        app:destination="@id/movieDetailsFragment" >
+        app:destination="@id/movieDetailsFragment">
         <argument
             android:name="id"
             app:argType="integer" />

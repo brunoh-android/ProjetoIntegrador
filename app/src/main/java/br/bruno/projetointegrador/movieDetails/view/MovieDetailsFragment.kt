@@ -1,8 +1,10 @@
 package br.bruno.projetointegrador.movieDetails.view
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
+import android.view.ViewGroup
 import android.widget.*
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
@@ -10,6 +12,7 @@ import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.movieDetails.viewModel.MovieDetailsViewModel
 import br.bruno.projetointegrador.movieDetails.vo.MoviesDetailsVo
 import br.bruno.projetointegrador.utils.*
+import okhttp3.internal.notify
 
 
 class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
@@ -34,25 +37,27 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         realeseDate = view.findViewById(R.id.releaseDate)
         favCheckBox = view.findViewById(R.id.Add_to_Fav_btn)
 
-
+        setupObserver()
         setupListeners()
         setupView()
-        setupObserver()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        viewModel.isMovieFavorite(args.id,requireContext())
     }
 
     private fun setupView() {
         viewModel.fecthMovieById(args.id)
-        viewModel.isMovieFavorite(args.id, requireContext())
     }
 
     private fun setupListeners() {
-        favCheckBox.setOnCheckedChangeListener { checkBox, isChecked ->
-            if (isChecked) {
-                viewModel.addToFav(args.id, requireContext())
-            } else {
-                viewModel.deleteMovie(requireContext(),args.id)
+        favCheckBox.setOnCheckedChangeListener { button, isChecked ->
+            if (button.isPressed) {
+                viewModel.upDateFav(args.id, requireContext(), isChecked)
             }
         }
+
     }
 
 
@@ -67,6 +72,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
                 ).show()
             }
         }
+        // liveData change Observed
         viewModel.favMovie.observe(viewLifecycleOwner) { movie ->
             when (movie) {
                 is Success -> if (movie.data){
@@ -84,8 +90,9 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
 
         viewModel.isFavorite.observe(viewLifecycleOwner) { movie ->
             when(movie){
-                is Success -> favCheckBox.isChecked = true
-                is Error -> favCheckBox.isChecked = false
+                is Loading -> notify()
+                is Success -> favCheckBox.isChecked = movie.data
+                is Error -> Toast.makeText(requireContext(), "error dataBase", Toast.LENGTH_SHORT).show()
             }
         }
     }

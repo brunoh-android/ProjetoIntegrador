@@ -1,6 +1,7 @@
 package br.bruno.projetointegrador.movieDetails.viewModel
 
 import android.content.Context
+import androidx.core.content.contentValuesOf
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -14,6 +15,7 @@ import br.bruno.projetointegrador.utils.Result
 import br.bruno.projetointegrador.utils.Success
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
+import java.util.zip.CheckedInputStream
 
 class MovieDetailsViewModel : ViewModel() {
 
@@ -26,9 +28,8 @@ class MovieDetailsViewModel : ViewModel() {
     private val _favMovie: MutableLiveData<Result<Boolean>> = MutableLiveData()
     val favMovie: LiveData<Result<Boolean>> = _favMovie
 
-    private val _isFavorite: MutableLiveData<Result<FavMovie>> = MutableLiveData()
-    val isFavorite: LiveData<Result<FavMovie>> = _isFavorite
-
+    private val _isFavorite: MutableLiveData<Result<Boolean>> = MutableLiveData()
+    val isFavorite: LiveData<Result<Boolean>> = _isFavorite
 
     fun fecthMovieById(id: Int) {
         viewModelScope.launch {
@@ -51,48 +52,37 @@ class MovieDetailsViewModel : ViewModel() {
         }
     }
 
-    fun addToFav(id: Int, context: Context) {
+    fun upDateFav(id: Int, context: Context, isChecked: Boolean) {
         viewModelScope.launch {
             try {
-                val response = repository.fetchMovieById(id)
-                val movie = FavMovie(
-                    title = response.title,
-                    poster_path = response.poster_path,
-                    id = response.id,
-                    uid = response.id
-                )
-                favRepo.addFav(context, movie)
-                _favMovie.value = Success(true)
+                if (isChecked) {
+                    val response = repository.fetchMovieById(id)
+                    val movie = FavMovie(
+                        title = response.title,
+                        poster_path = response.poster_path,
+                        id = response.id,
+                        uid = response.id
+                    )
+                    favRepo.addFav(context, movie)
+                } else {
+                    favRepo.deleteById(id, context)
+                }
+                _favMovie.value = Success(isChecked)
             } catch (ex: Exception) {
                 _favMovie.value = Error()
             }
         }
     }
 
-    fun deleteMovie(context: Context, id: Int) {
-        viewModelScope.launch {
-            try {
-                val response = repository.fetchMovieById(id)
-                val movie = FavMovie(
-                    title = response.title,
-                    poster_path = response.poster_path,
-                    id = response.id,
-                    uid = response.id
-                )
-                favRepo.delete(context, movie)
-                _favMovie.value = Success(false)
-            } catch (ex: Exception) {
-                _favMovie.value = Error()
-            }
-        }
-    }
 
     fun isMovieFavorite(id: Int, context: Context) {
         viewModelScope.launch {
             try {
-                val response = repository.fetchMovieById(id)
-                val movie = favRepo.findById(context, response.id)
-                _isFavorite.value = Success(movie)
+                val movie = favRepo.getMovieById(context, id)
+                if (movie != null)
+                    _isFavorite.value = Success(true)
+                else _isFavorite.value = Success(false)
+
             } catch (ex: Exception) {
                 _isFavorite.value = Error()
             }
