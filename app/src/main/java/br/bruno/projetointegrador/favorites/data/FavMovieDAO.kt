@@ -6,12 +6,18 @@ import androidx.room.*
 interface FavMovieDAO {
 
     @Query("SELECT * FROM favmovie")
-    fun getAll(): List<FavMovie>
+    suspend fun getAll(): List<FavMovie>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    fun insert(favMovie: FavMovie)
+    suspend fun insert(favMovie: FavMovie)
+
+    @Query("SELECT * FROM favmovie WHERE id = :id")
+    suspend fun getMovieById(id: Int) : FavMovie?
+
+    @Query("DELETE FROM favmovie WHERE id = :id")
+    suspend fun deleteById(id: Int)
 
     @Delete
-    fun delete(favMovie: FavMovie)
+    suspend fun delete(favMovie: FavMovie)
 
 }

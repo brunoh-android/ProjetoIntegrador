@@ -5,80 +5,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".home.HomeFragment"
-    android:background="@color/black"
-    >
+    tools:context=".home.HomeFragment">
 
-<!--    <com.google.android.material.appbar.AppBarLayout-->
-<!--        android:layout_width="match_parent"-->
-<!--        android:layout_height="wrap_content"-->
-<!--        android:background="@color/colorAccent">-->
-
-<!--        <com.google.android.material.appbar.CollapsingToolbarLayout-->
-<!--            android:layout_width="match_parent"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            app:layout_scrollFlags="scroll|enterAlways">-->
-
-<!--            <androidx.cardview.widget.CardView-->
-<!--                android:layout_width="match_parent"-->
-<!--                android:layout_height="wrap_content"-->
-<!--                android:layout_marginStart="16dp"-->
-<!--                android:layout_marginTop="8dp"-->
-<!--                android:layout_marginEnd="16dp"-->
-<!--                android:layout_marginBottom="8dp"-->
-<!--                android:elevation="6dp"-->
-<!--                app:cardCornerRadius="6dp">-->
-
-<!--                <LinearLayout-->
-<!--                    android:layout_width="match_parent"-->
-<!--                    android:layout_height="wrap_content"-->
-<!--                    android:gravity="center_vertical"-->
-<!--                    android:orientation="horizontal"-->
-<!--                    android:weightSum="1">-->
-
-<!--                    <TextView-->
-<!--                        android:id="@+id/txtSearch"-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:padding="10sp"-->
-<!--                        android:layout_marginHorizontal="8dp"-->
-<!--                        android:layout_weight="0.9"-->
-<!--                        android:text="Procurar Filmes" />-->
-
-<!--                    <ImageView-->
-<!--                        android:layout_width="wrap_content"-->
-<!--                        android:layout_height="wrap_content"-->
-<!--                        android:layout_weight="0.1"-->
-<!--                        android:src="@drawable/ic_search"-->
-<!--                         />-->
-
-<!--                </LinearLayout>-->
-<!--            </androidx.cardview.widget.CardView>-->
-<!--        </com.google.android.material.appbar.CollapsingToolbarLayout>-->
-<!--    </com.google.android.material.appbar.AppBarLayout>-->
-
-    <com.google.android.material.tabs.TabLayout
-        android:id="@+id/tabLayout"
+    <androidx.fragment.app.FragmentContainerView
+        android:id="@+id/homeFragmentContainer"
+        android:name="androidx.navigation.fragment.NavHostFragment"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:tabGravity="start"
-        app:tabIndicator="@drawable/tab_item_selector"
-        app:tabIndicatorFullWidth="true"
-        app:tabIndicatorHeight="2dp"
-        app:tabSelectedTextColor="@color/colorAccent"
-        app:tabTextColor="@color/cardview_dark_background"
-        app:tabTextAppearance="@style/CustomTabTextAppearance" />
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="0.5dp"
-        android:layout_marginStart="15sp"
-        android:layout_marginEnd="15sp"
-        android:background="@android:color/darker_gray" />
-
-    <androidx.viewpager.widget.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+        android:layout_height="match_parent"
+        app:defaultNavHost="true"
+        app:navGraph="@navigation/home_graph" />
 
 </LinearLayout>

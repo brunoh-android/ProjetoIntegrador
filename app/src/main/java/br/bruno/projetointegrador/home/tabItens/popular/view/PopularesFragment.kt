@@ -9,10 +9,12 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.HomeFragmentDirections
+import br.bruno.projetointegrador.home.MoviesFragmentDirections
 import br.bruno.projetointegrador.home.tabItens.popular.viewModel.PopularMoviesViewModel
 import br.bruno.projetointegrador.utils.Error
+import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Success
+import okhttp3.internal.notify
 
 
 class PopularesFragment : Fragment(R.layout.fragments_populares) {
@@ -24,8 +26,8 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
         viewModel.totalPages
     }
     private val adapter: MoviesAdapter by lazy {
-        MoviesAdapter(requireContext()) {
-            val direction = HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(it.id)
+        MoviesAdapter() {
+            val direction = MoviesFragmentDirections.actionGlobalMovieDetailsFragment(it.id)
             findNavController().navigate(direction)
         }
     }
@@ -47,6 +49,7 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
         viewModel.movieList.observe(viewLifecycleOwner) {
 
             when (it) {
+                is Loading -> notify()
                 is Success -> adapter.addData(it.data)
                 is Error -> Toast.makeText(
                     requireContext(),

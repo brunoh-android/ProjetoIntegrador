@@ -1,31 +1,34 @@
 package br.bruno.projetointegrador.favorites.view
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.View
 import android.widget.Toast
+import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.fragment.navArgs
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.favorites.data.FavMovie
 import br.bruno.projetointegrador.favorites.viewModel.FavViewModel
-import br.bruno.projetointegrador.home.HomeFragmentDirections
+import br.bruno.projetointegrador.home.MoviesFragmentDirections
 import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Success
 
 
-class FavoritosFragment : Fragment(R.layout.favoritos_fragments) {
+class FavoritesFragment : Fragment(R.layout.favoritos_fragments) {
 
-    private val viewModel : FavViewModel by viewModels()
-    private val adapter : FavMovieAdapter by lazy{
-        FavMovieAdapter(requireContext(),::onDeleteClicked){
-            val direction = FavoritosFragmentDirections.actionFavoritosFragmentToMovieDetailsFragment(it.id)
-            findNavController().navigate(direction)
+    private val viewModel: FavViewModel by viewModels()
+    private val adapter: FavMovieAdapter by lazy {
+        FavMovieAdapter(::onDeleteClicked) { movie ->
+            //val direction = MoviesFragmentDirections.actionGlobalMovieDetailsFragment(movie.id)
+            //findNavController().navigate(direction)
         }
     }
 
+    override fun onResume() {
+        super.onResume()
+        viewModel.fetchMovies(requireContext())
+    }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -35,10 +38,12 @@ class FavoritosFragment : Fragment(R.layout.favoritos_fragments) {
     }
 
     private fun setUpObservers() {
-        viewModel.favMovie.observe(viewLifecycleOwner){
-            when(it) {
+        viewModel.favMovie.observe(viewLifecycleOwner) {
+            when (it) {
                 is Loading -> showLoading()
-                is Success -> { adapter.addData(it.data) }
+                is Success -> {
+                    adapter.updateData(it.data)
+                }
                 else -> showError()
             }
         }
@@ -54,12 +59,10 @@ class FavoritosFragment : Fragment(R.layout.favoritos_fragments) {
 
     private fun setView(view: View) {
         view.findViewById<RecyclerView>(R.id.favoritos_Rv).adapter = adapter
-        viewModel.fetchMovies(requireContext())
-
     }
 
     private fun onDeleteClicked(favMovie: FavMovie) {
-        viewModel.deleteMovie(requireContext(),favMovie)
+        viewModel.deleteMovie(requireContext(), favMovie)
 
     }
 }

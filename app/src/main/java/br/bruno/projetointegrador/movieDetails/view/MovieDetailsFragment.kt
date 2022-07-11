@@ -1,21 +1,18 @@
 package br.bruno.projetointegrador.movieDetails.view
 
 import android.os.Bundle
+import android.view.LayoutInflater
 import androidx.fragment.app.Fragment
 import android.view.View
-import android.widget.Button
-import android.widget.ImageView
-import android.widget.TextView
-import android.widget.Toast
+import android.view.ViewGroup
+import android.widget.*
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.favorites.data.FavMovie
 import br.bruno.projetointegrador.movieDetails.viewModel.MovieDetailsViewModel
 import br.bruno.projetointegrador.movieDetails.vo.MoviesDetailsVo
 import br.bruno.projetointegrador.utils.*
-import kotlin.Error
+import okhttp3.internal.notify
 
 
 class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
@@ -28,7 +25,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
     private lateinit var synopsis: TextView
     private lateinit var voteAverage: TextView
     private lateinit var realeseDate: TextView
-    private lateinit var addToFavBtn: Button
+    private lateinit var favCheckBox: CheckBox
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
@@ -38,34 +35,51 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         synopsis = view.findViewById(R.id.movie_synopsis)
         voteAverage = view.findViewById(R.id.voteAverage)
         realeseDate = view.findViewById(R.id.releaseDate)
-        addToFavBtn = view.findViewById(R.id.Add_to_Fav_btn)
+        favCheckBox = view.findViewById(R.id.Add_to_Fav_btn)
 
-
-        setupClickers()
-        fetchMovieById(args.id)
         setupObserver()
+        setupListeners()
+        setupView()
     }
 
-    private fun setupClickers() {
-        addToFavBtn.setOnClickListener {
-            viewModel.addToFav(args.id,requireContext())
-            findNavController().navigate(R.id.action_movieDetailsFragment_to_favoritosFragment)
+    override fun onResume() {
+        super.onResume()
+        viewModel.isMovieFavorite(args.id,requireContext())
+    }
+
+    private fun setupView() {
+        viewModel.fecthMovieById(args.id)
+    }
+
+    private fun setupListeners() {
+        favCheckBox.setOnCheckedChangeListener { button, isChecked ->
+            if (button.isPressed) {
+                viewModel.upDateFav(args.id, requireContext(), isChecked)
+            }
         }
+
     }
 
-    private fun fetchMovieById(id: Int) {
-        viewModel.fecthMovieById(id)
-    }
 
     private fun setupObserver() {
-        viewModel.movieDatail.observe(viewLifecycleOwner) { movie ->
+        viewModel.movieDetail.observe(viewLifecycleOwner) { movie ->
             when (movie) {
-                is Success -> setupView(movie.data)
-                is Error -> Toast.makeText(
+                is Success -> bindView(movie.data)
+                else -> Toast.makeText(
                     requireContext(),
                     Error<String>().msg,
                     Toast.LENGTH_SHORT
                 ).show()
+            }
+        }
+        // liveData change Observed
+        viewModel.favMovie.observe(viewLifecycleOwner) { movie ->
+            when (movie) {
+                is Success -> if (movie.data){
+                    Toast.makeText(requireContext(), "movie added to favorite list", Toast.LENGTH_SHORT).show()
+                } else {
+                    Toast.makeText(requireContext(), "movie removed from favorite list", Toast.LENGTH_SHORT).show()
+                }
                 else -> Toast.makeText(
                     requireContext(),
                     "Algo alem do erro ocorreu",
@@ -73,10 +87,18 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
                 ).show()
             }
         }
+
+        viewModel.isFavorite.observe(viewLifecycleOwner) { movie ->
+            when(movie){
+                is Loading -> notify()
+                is Success -> favCheckBox.isChecked = movie.data
+                is Error -> Toast.makeText(requireContext(), "error dataBase", Toast.LENGTH_SHORT).show()
+            }
+        }
     }
 
 
-    private fun setupView(movie: MoviesDetailsVo) {
+    private fun bindView(movie: MoviesDetailsVo) {
         title.text = movie.tittle
         synopsis.text = movie.movie_synopsis
         voteAverage.text = "votos: " + movie.vote_average.toString()

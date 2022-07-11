@@ -8,7 +8,7 @@ import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.HomeFragmentDirections
+import br.bruno.projetointegrador.home.MoviesFragmentDirections
 import br.bruno.projetointegrador.home.tabItens.emCartaz.view.adapter.EmCartazMoviesAdapter
 import br.bruno.projetointegrador.home.tabItens.emCartaz.viewModel.EmCartazMoviesViewModel
 import br.bruno.projetointegrador.home.tabItens.emCartaz.vo.EmCartazMoviesVO
@@ -49,7 +49,7 @@ class EmCartazFragment : Fragment(R.layout.fragments_em_cartaz) {
 
     private fun preperReycclerView(data: List<EmCartazMoviesVO>, view: View) {
         view.findViewById<RecyclerView>(R.id.MoviesRV).adapter = EmCartazMoviesAdapter(requireContext(),data){
-            val direction = HomeFragmentDirections.actionHomeFragmentToMovieDetailsFragment(it.id)
+            val direction = MoviesFragmentDirections.actionGlobalMovieDetailsFragment(it.id)
             findNavController().navigate(direction)
         }
 

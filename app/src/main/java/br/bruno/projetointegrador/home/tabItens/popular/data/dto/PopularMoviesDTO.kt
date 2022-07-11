@@ -6,4 +6,6 @@ package br.bruno.projetointegrador.home.tabItens.popular.data.dto
   val overview : String,
   val poster_path : String,
   val id : Int,
+  var isFavorite: Boolean = false,
+
  )
