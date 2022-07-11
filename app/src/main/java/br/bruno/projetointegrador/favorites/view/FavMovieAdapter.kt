@@ -1,38 +1,42 @@
 package br.bruno.projetointegrador.favorites.view
 
-import android.content.Context
+
 import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
+
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.databinding.ItemFavListBinding
 import br.bruno.projetointegrador.favorites.data.FavMovie
+
 import br.bruno.projetointegrador.utils.IMAGE_URL
 import br.bruno.projetointegrador.utils.MyGlide
 
+
 class FavMovieAdapter(
-    private val context: Context,
     private val onBtnDeleteClicked: (favMovie: FavMovie) -> Unit,
     private val clickListener: (FavMovie) -> Unit
 ) : RecyclerView.Adapter<FavMovieAdapter.FavViewHolder>() {
 
     private val movies: MutableList<FavMovie> = emptyList<FavMovie>().toMutableList()
 
-    fun addData(movie: List<FavMovie>) {
+    fun updateData(movie: List<FavMovie>) {
+        movies.clear()
         movies.addAll(movie)
         notifyDataSetChanged()
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavViewHolder =
-        FavViewHolder(context,
+        FavViewHolder(
             ItemFavListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         ) {
             clickListener(movies[it])
         }
+
 
     override fun onBindViewHolder(holder: FavViewHolder, position: Int) {
         holder.bind(movies[position])
@@ -42,7 +46,6 @@ class FavMovieAdapter(
 
 
     inner class FavViewHolder(
-        private val context: Context,
         private val binding: ItemFavListBinding,
         clickAtPosition: (Int) -> Unit
     ) :
@@ -62,7 +65,14 @@ class FavMovieAdapter(
         fun bind(movie: FavMovie) {
             title.text = movie.title
             deleteBtn.setOnClickListener { openDeleteDialog(movie) }
-            MyGlide().build(context, IMAGE_URL, movie.poster_path, icon, icon.width, icon.height)
+            MyGlide().build(
+                itemView.context,
+                IMAGE_URL,
+                movie.poster_path,
+                icon,
+                icon.width,
+                icon.height
+            )
         }
 
         private fun openDeleteDialog(movie: FavMovie) {

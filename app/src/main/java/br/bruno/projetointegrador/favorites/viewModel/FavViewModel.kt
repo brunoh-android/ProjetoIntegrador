@@ -1,6 +1,5 @@
 package br.bruno.projetointegrador.favorites.viewModel
 
-import android.app.Application
 import android.content.Context
 import androidx.lifecycle.*
 import br.bruno.projetointegrador.favorites.data.FavMovie
@@ -9,9 +8,7 @@ import br.bruno.projetointegrador.utils.Error
 import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Result
 import br.bruno.projetointegrador.utils.Success
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import kotlin.coroutines.coroutineContext
 
 class FavViewModel: ViewModel() {
 
@@ -28,7 +25,7 @@ class FavViewModel: ViewModel() {
 
         viewModelScope.launch {
             try {
-                val favMovie = repository.getMovies(context)
+                val favMovie = repository.getAllMovies(context)
                 _favMovie.value = Success(favMovie)
             } catch (ex: Exception) {
                 _favMovie.value = Error()
