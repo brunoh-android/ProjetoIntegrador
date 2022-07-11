@@ -42,7 +42,7 @@
         android:layout_marginStart="24dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="24dp"
-        android:hint="Digite su senha"
+        android:hint="Digite sua senha"
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
