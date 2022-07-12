@@ -1,5 +1,6 @@
 package br.bruno.projetointegrador.home.view
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -42,7 +43,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
 
     override fun onResume() {
         super.onResume()
-        viewModel.isMovieFavorite(args.id,requireContext())
+        viewModel.isMovieFavorite(args.id)
     }
 
     private fun setupView() {
@@ -52,7 +53,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
     private fun setupListeners() {
         favCheckBox.setOnCheckedChangeListener { button, isChecked ->
             if (button.isPressed) {
-                viewModel.upDateFav(args.id, requireContext(), isChecked)
+                viewModel.upDateFav(args.id, isChecked)
             }
         }
 
@@ -101,14 +102,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         synopsis.text = movie.movie_synopsis
         voteAverage.text = "votos: " + movie.vote_average.toString()
         realeseDate.text = "Lançamento: " + movie.release_date
-        MyGlide().build(
-            requireContext(),
-            IMAGE_URL,
-            movie.backdrop_path,
-            poster,
-            poster.width,
-            poster.height
-        )
+        requireView().buildGlide(IMAGE_URL, movie.poster_path, poster, 400, 400)
     }
 
 }

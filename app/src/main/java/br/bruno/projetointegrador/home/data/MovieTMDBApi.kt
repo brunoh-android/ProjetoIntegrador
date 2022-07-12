@@ -10,19 +10,25 @@ import retrofit2.http.Query
 interface MovieTMDBApi {
 
     @GET("/3/movie/now_playing?api_key=$API_KEY&language=pt-BR")
-    suspend fun fetchNowPlayingMovieList() : MovieResponse
+    suspend fun fetchNowPlayingMovieList(
+        @Query("page") page: Int
+    ): MovieResponse
 
     @GET("/3/movie/top_rated?api_key=$API_KEY&language=pt-BR")
-    suspend fun fetchTopRatedMovieList() : MovieResponse
+    suspend fun fetchTopRatedMovieList(
+        @Query("page") page: Int
+    ): MovieResponse
 
     @GET("/3/movie/popular?api_key=$API_KEY&language=pt-BR")
     suspend fun fetchPopularMovieList(
-        @Query("page") page:Int)  : MovieResponse
+        @Query("page") page: Int
+    ): MovieResponse
 
     @GET("/3/movie/upcoming?api_key=${API_KEY}&language=pt-BR")
-    suspend fun fetchUpComingMovieList() : MovieResponse
+    suspend fun fetchUpComingMovieList(): MovieResponse
 
     @GET("/3/movie/{id}?api_key=$API_KEY&language=pt-BR")
     suspend fun fetchMovieByID(
-        @Path("id") id : Int) : MovieDetailsResponse
+        @Path("id") id: Int
+    ): MovieDetailsResponse
 }
