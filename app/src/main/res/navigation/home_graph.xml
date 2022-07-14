@@ -29,7 +29,7 @@
     </action>
     <fragment
         android:id="@+id/fragmentLogin"
-        android:name="br.bruno.projetointegrador.login.ui.FragmentLogin"
+        android:name="br.bruno.projetointegrador.login.ui.SignInFragment"
         android:label="FragmentLogin" >
         <action
             android:id="@+id/action_fragmentLogin_to_movieFragment"
@@ -40,7 +40,7 @@
     </fragment>
     <fragment
         android:id="@+id/fragmentRegister"
-        android:name="br.bruno.projetointegrador.login.ui.FragmentRegister"
+        android:name="br.bruno.projetointegrador.login.ui.RegisterFragment"
         android:label="FragmentRegister" >
         <action
             android:id="@+id/action_fragmentRegister_to_fragmentLogin"

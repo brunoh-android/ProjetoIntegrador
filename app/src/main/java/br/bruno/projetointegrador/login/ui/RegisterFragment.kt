@@ -11,7 +11,7 @@ import androidx.navigation.fragment.findNavController
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.login.viewmodel.AccessViewModel
 
-class FragmentRegister : Fragment(R.layout.createaccount) {
+class RegisterFragment : Fragment(R.layout.createaccount) {
 
     lateinit var accessViewModel: AccessViewModel
     lateinit var name : EditText
