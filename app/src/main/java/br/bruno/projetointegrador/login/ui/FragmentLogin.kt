@@ -12,6 +12,8 @@ import androidx.navigation.fragment.findNavController
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.login.viewmodel.AccessViewModel
 import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.common.SignInButton
+import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -23,12 +25,13 @@ class FragmentLogin : Fragment(R.layout.tela_login) {
     lateinit var passwordTxt : EditText
     lateinit var signInbtn : Button
     lateinit var registerBtn : Button
-    lateinit var googleBtn : Button
-    var firebaseAuth = Firebase.auth
+    lateinit var googleBtn : SignInButton
+    lateinit var firebase : FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         accessViewModel = ViewModelProvider(this)[AccessViewModel::class.java]
+        firebase = Firebase.auth
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -60,7 +63,7 @@ class FragmentLogin : Fragment(R.layout.tela_login) {
     private fun setupObserver() {
         accessViewModel.userAuthLiveData.observe(viewLifecycleOwner){
             if(it) {
-                findNavController().navigate(R.id.action_fragmentLogin_to_fragmentMain)
+                findNavController().navigate(R.id.action_fragmentLogin_to_movieFragment)
                 Toast.makeText(requireContext(),"Usuario criado com sucesso", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(requireContext(),"Erro ao realizar Login, verifique os dados digitados", Toast.LENGTH_SHORT).show()
@@ -73,7 +76,7 @@ class FragmentLogin : Fragment(R.layout.tela_login) {
         if (requestCode == accessViewModel.GOOGLE_REQUEST_CODE) {
             val accountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
             val credential = GoogleAuthProvider.getCredential(accountTask.result.idToken,null)
-            firebaseAuth.signInWithCredential(credential).addOnCompleteListener {
+            firebase.signInWithCredential(credential).addOnCompleteListener {
                 if(it.isSuccessful){
                     val user = accountTask.result
                     accessViewModel.onCreateUser(user.displayName.toString()

@@ -5,22 +5,23 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#0d253f"
+    android:orientation="vertical"
     android:paddingLeft="20dp"
     android:paddingTop="20dp"
     android:paddingRight="20dp"
     android:paddingBottom="20dp"
-    tools:context=".ui.FragmentLogin"
-    android:orientation="vertical">
+    tools:context=".ui.FragmentLogin">
 
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="100dp"
+        android:layout_width="196dp"
+        android:layout_height="194dp"
         android:layout_gravity="center"
-        android:src="@drawable/logo"
-        android:contentDescription="TODO" />
+        android:layout_marginTop="100dp"
+
+        android:src="@drawable/logo" />
 
     <EditText
         android:id="@+id/email"
@@ -33,7 +34,7 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
-        android:textColorHint="#757575"/>
+        android:textColorHint="#757575" />
 
     <EditText
         android:id="@+id/password"
@@ -76,6 +77,5 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="16dp" />
-
 
 </LinearLayout>

@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/home_graph"
-    app:startDestination="@id/movieFragment">
+    app:startDestination="@id/fragmentLogin">
 
     <fragment
         android:id="@+id/movieFragment"
@@ -27,6 +27,25 @@
             android:name="id"
             app:argType="integer" />
     </action>
+    <fragment
+        android:id="@+id/fragmentLogin"
+        android:name="br.bruno.projetointegrador.login.ui.FragmentLogin"
+        android:label="FragmentLogin" >
+        <action
+            android:id="@+id/action_fragmentLogin_to_movieFragment"
+            app:destination="@id/movieFragment" />
+        <action
+            android:id="@+id/action_fragmentLogin_to_fragmentRegister"
+            app:destination="@id/fragmentRegister" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragmentRegister"
+        android:name="br.bruno.projetointegrador.login.ui.FragmentRegister"
+        android:label="FragmentRegister" >
+        <action
+            android:id="@+id/action_fragmentRegister_to_fragmentLogin"
+            app:destination="@id/fragmentLogin" />
+    </fragment>
 
 
 </navigation>
