@@ -27,6 +27,7 @@ class FavViewModel(app : Application) : AndroidViewModel(app) {
             try {
                 val favMovie = repository.getAllMovies()
                 _favMovie.value = Success(favMovie)
+
             } catch (ex: Exception) {
                 _favMovie.value = Error()
             }
