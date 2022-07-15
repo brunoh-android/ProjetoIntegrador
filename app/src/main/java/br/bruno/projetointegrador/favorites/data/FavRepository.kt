@@ -1,12 +1,10 @@
 package br.bruno.projetointegrador.favorites.data
 
 import android.content.Context
-import android.content.LocusId
 import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
+
 
 class FavRepository {
 
