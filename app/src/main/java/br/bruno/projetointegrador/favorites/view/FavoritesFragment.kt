@@ -20,8 +20,8 @@ class FavoritesFragment : Fragment(R.layout.favoritos_fragments) {
     private val viewModel: FavViewModel by viewModels()
     private val adapter: FavMovieAdapter by lazy {
         FavMovieAdapter(::onDeleteClicked) { movie ->
-            val direction = FavoritesFragmentDirections.actionGlobalMovieDetailsFragment(movie.id)
-           findNavController().navigate(direction)
+          //  val direction = FavoritesFragmentDirections.actionGlobalMovieDetailsFragment(movie.id)
+          // findNavController().navigate(direction)
         }
     }
 
