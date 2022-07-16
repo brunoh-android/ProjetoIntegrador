@@ -26,7 +26,7 @@ class ProfileFragment : Fragment() {
 
 
     private val REQUEST_IMAGE_CAPTURE = 2
-    private var favRepository = FavRepository()
+   // private var favRepository = FavRepository()
     private val currentUser = FirebaseAuth.getInstance().currentUser
     private var _binding: ProfileFragmentsBinding? = null
     private val binding get() = _binding!!
@@ -35,7 +35,7 @@ class ProfileFragment : Fragment() {
 
     override fun onResume() {
         super.onResume()
-        viewModel.fetchSizeFavorites(requireContext())
+        viewModel.fetchSizeFavorites()
     }
 
     override fun onCreateView(
@@ -52,7 +52,6 @@ class ProfileFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         setupObservers()
-
 
     }
 
@@ -73,6 +72,21 @@ class ProfileFragment : Fragment() {
 
     }
 
+    private fun takePictureIntent() {
+        if (ContextCompat.checkSelfPermission(
+                requireContext(),
+                android.Manifest.permission.READ_EXTERNAL_STORAGE
+            ) != PackageManager.PERMISSION_GRANTED
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_IMAGE_CAPTURE
+            )
+        } else {
+            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+            startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
+        }
+    }
 
 
     override fun onRequestPermissionsResult(
@@ -119,19 +133,5 @@ class ProfileFragment : Fragment() {
 
     }
 
-    private fun takePictureIntent() {
-        if (ContextCompat.checkSelfPermission(
-                requireContext(),
-                android.Manifest.permission.READ_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_IMAGE_CAPTURE
-            )
-        } else {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
-        }
-    }
+
 }
