@@ -10,11 +10,9 @@ import br.bruno.projetointegrador.utils.Result
 import br.bruno.projetointegrador.utils.Success
 import kotlinx.coroutines.launch
 
-class FavViewModel(app : Application) : AndroidViewModel(app) {
+class FavViewModels(app : Application) : AndroidViewModel(app) {
 
     private val repository = FavRepository(app.applicationContext)
-
-
     private val _favMovie: MutableLiveData<Result<List<FavMovie>>> = MutableLiveData()
     val favMovie: LiveData<Result<List<FavMovie>>> = _favMovie
 

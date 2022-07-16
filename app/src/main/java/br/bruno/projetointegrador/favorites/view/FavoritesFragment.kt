@@ -5,19 +5,17 @@ import android.view.View
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.favorites.data.FavMovie
-import br.bruno.projetointegrador.favorites.viewModel.FavViewModel
-import br.bruno.projetointegrador.home.view.MoviesFragmentDirections
+import br.bruno.projetointegrador.favorites.viewModel.FavViewModels
 import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Success
 
 
 class FavoritesFragment : Fragment(R.layout.favoritos_fragments) {
 
-    private val viewModel: FavViewModel by viewModels()
+    private val viewModel: FavViewModels by viewModels()
     private val adapter: FavMovieAdapter by lazy {
         FavMovieAdapter(::onDeleteClicked) { movie ->
           //  val direction = FavoritesFragmentDirections.actionGlobalMovieDetailsFragment(movie.id)
