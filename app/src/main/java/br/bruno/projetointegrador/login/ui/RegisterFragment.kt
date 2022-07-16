@@ -46,7 +46,7 @@ class RegisterFragment : Fragment(R.layout.createaccount) {
     private fun setupObserver() {
         accessViewModel.createUserLiveData.observe(viewLifecycleOwner){
             if(it){
-                findNavController().navigate(R.id.action_fragmentRegister_to_fragmentLogin)
+                findNavController().navigate(R.id.signInFragment)
                 Toast.makeText(requireContext(),"Usuario Criado com sucesso", Toast.LENGTH_SHORT).show()
             } else {
                 Toast.makeText(requireContext(),"Erro ao Criar usuário, tente novamente", Toast.LENGTH_SHORT).show()

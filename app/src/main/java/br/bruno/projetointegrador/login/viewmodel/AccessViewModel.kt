@@ -6,6 +6,7 @@ import android.net.wifi.WifiConfiguration.AuthAlgorithm.strings
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import br.bruno.projetointegrador.MainActivity
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.login.data.User
 import br.bruno.projetointegrador.login.data.UserDAO
@@ -48,16 +49,20 @@ class AccessViewModel : ViewModel() {
         }
     }
 
-    fun onEmailSignIn(email : String, password : String) {
+    fun onEmailSignIn(email : String, password : String) : Boolean {
         var firebaseAuth = Firebase.auth
         val authTask = firebaseAuth.signInWithEmailAndPassword(email,password)
 
         authTask.addOnCompleteListener {
             onUserRequestToSignIn.value = authTask.isSuccessful
+
         }
+        return onUserRequestToSignIn.value == true
     }
 
     fun signInGoogleConfig (activity: Activity) : Intent {
+
+
         gso = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
             .requestIdToken(activity.getString(R.string.google_id))
             .requestEmail()

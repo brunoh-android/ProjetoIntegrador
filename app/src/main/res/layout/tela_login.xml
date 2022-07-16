@@ -11,7 +11,7 @@
     android:paddingTop="20dp"
     android:paddingRight="20dp"
     android:paddingBottom="20dp"
-    tools:context=".ui.FragmentLogin">
+    tools:context=".login.ui.LoginActivity">
 
 
     <ImageView
@@ -34,7 +34,8 @@
         android:inputType="textEmailAddress"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
-        android:textColorHint="#757575" />
+        android:textColorHint="#757575"
+        android:textColor="@color/white"/>
 
     <EditText
         android:id="@+id/password"
@@ -47,7 +48,8 @@
         android:inputType="textPassword"
         android:minHeight="48dp"
         android:selectAllOnFocus="true"
-        android:textColorHint="#757575" />
+        android:textColorHint="#757575"
+        android:textColor="@color/white"/>
 
     <Button
         android:id="@+id/btnlogin"
