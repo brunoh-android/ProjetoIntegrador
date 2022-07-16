@@ -4,13 +4,13 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0d253f">
+    android:background="@drawable/fundologin">
 
     <TextView
         android:id="@+id/textView2"
         android:layout_width="334dp"
         android:layout_height="84dp"
-        android:layout_marginTop="196dp"
+        android:layout_marginTop="304dp"
         android:gravity="center"
         android:text="TMDB"
         android:textAlignment="center"
@@ -18,7 +18,7 @@
         android:textSize="45sp"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.493"
+        app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -38,6 +38,6 @@ Milhões de Filmes, Séries e Pessoas para Descobrir. Explore já."
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2"
-        app:layout_constraintVertical_bias="0.252" />
+        app:layout_constraintVertical_bias="1.0" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
