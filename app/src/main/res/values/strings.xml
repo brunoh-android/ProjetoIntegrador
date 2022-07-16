@@ -12,4 +12,12 @@
     <string name="meus_filmes_favoritos">Meus filmes favoritos</string>
     <string name="synopsis">Resumo</string>
     >>>>>>> feature/favoritos
+
+
+    <string name="action_sign_in">Sign in</string>
+    <string name="action_register">Cadastrar</string>
+
+    <string name="google_id">1084202733015-rtnukuvusdq41g0sk7qqq05gnvr2lh6n.apps.googleusercontent.com</string>
+
+
 </resources>
