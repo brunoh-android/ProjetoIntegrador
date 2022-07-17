@@ -3,7 +3,9 @@ package br.bruno.projetointegrador.profile.view
 
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.Bitmap
 import android.graphics.ImageDecoder
+import android.net.Uri
 import android.os.Build
 import android.os.Bundle
 import android.provider.MediaStore
@@ -15,11 +17,16 @@ import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.findNavController
 import br.bruno.projetointegrador.databinding.ProfileFragmentsBinding
+import br.bruno.projetointegrador.home.view.MoviesFragmentDirections
 import br.bruno.projetointegrador.login.data.User
 import br.bruno.projetointegrador.login.ui.LoginActivity
 import br.bruno.projetointegrador.profile.viewModel.ProfileViewModel
+import br.bruno.projetointegrador.utils.buildGlide
+import com.bumptech.glide.Glide
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.DataSnapshot
 import com.google.firebase.database.DatabaseError
 import com.google.firebase.database.DatabaseReference
@@ -28,19 +35,23 @@ import com.google.firebase.database.ktx.database
 import com.google.firebase.database.ktx.getValue
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.ktx.Firebase
+import com.google.firebase.storage.FirebaseStorage
+import java.io.ByteArrayOutputStream
 
 
 class ProfileFragment : Fragment() {
 
 
 
-    private val TAG = "ReadAndWriteSnippets"
+
     private val REQUEST_IMAGE_CAPTURE = 2
     private val currentUser = FirebaseAuth.getInstance().currentUser
     private var _binding: ProfileFragmentsBinding? = null
     private val usuarioID= currentUser?.uid ?:""
     private val database: DatabaseReference = Firebase.database.reference
     private val binding get() = _binding!!
+    private val DEFAULT_IMAGE_URL = "https://picsum.photos/200"
+    private lateinit var imageUri: Uri
     private val viewModel: ProfileViewModel by viewModels()
 
 
@@ -101,6 +112,9 @@ class ProfileFragment : Fragment() {
         val email = currentUser?.email.toString()
         binding.txtEmail.setText(email)
 
+        if(currentUser?.photoUrl!=null){
+            Glide.with(requireContext()).load(currentUser.photoUrl).into(binding.profileImg)
+        }
 
 
 
@@ -108,19 +122,24 @@ class ProfileFragment : Fragment() {
     }
 
     private fun takePictureIntent() {
-        if (ContextCompat.checkSelfPermission(
-                requireContext(),
-                android.Manifest.permission.READ_EXTERNAL_STORAGE
-            ) != PackageManager.PERMISSION_GRANTED
-        ) {
-            ActivityCompat.requestPermissions(
-                requireActivity(),
-                arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE), REQUEST_IMAGE_CAPTURE
-            )
-        } else {
-            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-            startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
-        }
+
+
+            if (ContextCompat.checkSelfPermission(
+                    requireContext(),
+                    android.Manifest.permission.READ_EXTERNAL_STORAGE
+                ) != PackageManager.PERMISSION_GRANTED
+            ) {
+                ActivityCompat.requestPermissions(
+                    requireActivity(),
+                    arrayOf(android.Manifest.permission.READ_EXTERNAL_STORAGE),
+                    REQUEST_IMAGE_CAPTURE
+                )
+            } else {
+                val intent =
+                    Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
+                startActivityForResult(intent, REQUEST_IMAGE_CAPTURE)
+            }
+
     }
 
 
@@ -151,22 +170,52 @@ class ProfileFragment : Fragment() {
                 requireActivity().contentResolver,
                 data?.data!!
             )
+            uploadImageAndSaveUri(bitmap)
             imageView.setImageBitmap(bitmap)
+
+
         } else {
             val source = ImageDecoder.createSource(requireActivity().contentResolver, data?.data!!)
             val bitmap = ImageDecoder.decodeBitmap(source)
-
+            uploadImageAndSaveUri(bitmap)
             imageView.setImageBitmap(bitmap)
 
-            val imagem = MediaStore.Images.Media.getBitmap(
-                requireActivity().baseContext.contentResolver,
-                data?.data
-            )
-            imageView.setImageBitmap(imagem)
 
         }
 
+
+
+        }
+
+    private fun uploadImageAndSaveUri(bitmap: Bitmap) {
+        val baos = ByteArrayOutputStream()
+        val storageRef = FirebaseStorage.getInstance()
+            .reference
+            .child("users/${FirebaseAuth.getInstance().currentUser?.uid}")
+        bitmap.compress(Bitmap.CompressFormat.JPEG, 100, baos)
+        val image = baos.toByteArray()
+        val upload = storageRef.putBytes(image)
+
+        upload.addOnCompleteListener { uploadTask ->
+
+
+            if (uploadTask.isSuccessful) {
+                storageRef.downloadUrl.addOnCompleteListener { urlTask ->
+                    urlTask.result?.let {
+                        imageUri = it
+                        val updates = UserProfileChangeRequest.Builder()
+                            .setPhotoUri(imageUri)
+                            .build()
+                        currentUser?.updateProfile(updates)
+
+                    }
+                }
+            } else {
+                uploadTask.exception?.let {
+                 //   activity?.toast(it.message!!)
+                }
+            }
+        }
+
     }
-
-
 }
