@@ -44,19 +44,6 @@ android {
 
 dependencies {
 
-    // Import the Firebase BoM
-    implementation platform('com.google.firebase:firebase-bom:30.1.0')
-
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-
-    // Declare the dependency for the Firebase SDK for Google Analytics
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-
-    // Declare the dependencies for any other desired Firebase products
-    // For example, declare the dependencies for Firebase Authentication and Cloud Firestore
-  //  implementation 'com.google.firebase:firebase-auth-ktx'
- //   implementation 'com.google.firebase:firebase-firestore-ktx'
-
     implementation 'androidx.core:core-ktx:1.8.0'
     implementation 'androidx.appcompat:appcompat:1.4.2'
     implementation 'com.google.android.material:material:1.6.1'
@@ -69,11 +56,6 @@ dependencies {
     androidTestImplementation 'androidx.test.espresso:espresso-core:3.4.0'
     implementation 'com.google.android.material:material:1.6.1'
     implementation 'androidx.viewpager2:viewpager2:1.0.0'
-
-    
-    // IMPLEMENTAÇÃO LOGIN DIEGO
-    implementation 'com.firebaseui:firebase-ui-auth:7.2.0'
-    implementation "com.google.firebase:firebase-auth:21.0.6"
     implementation 'com.google.android.gms:play-services-auth:20.2.0'
 
    //Cirecular Image View 3rd party library
