@@ -50,7 +50,9 @@ class SignInFragment : Fragment(R.layout.tela_login) {
 
     private fun setupListeners() {
         signInbtn.setOnClickListener {
-           accessViewModel.onEmailSignIn(emailTxt.text.toString(),passwordTxt.text.toString())
+
+
+            accessViewModel.onEmailSignIn(emailTxt.text.toString(),passwordTxt.text.toString())
 
 
         }
