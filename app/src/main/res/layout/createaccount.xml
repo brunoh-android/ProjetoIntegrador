@@ -3,59 +3,66 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/fundologin"
     android:orientation="vertical"
     tools:context=".ui.FragmentRegister">
 
 
     <EditText
         android:id="@+id/txtName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="150dp"
-        android:hint="Digite o seu nome"
-        android:inputType="textPersonName"
+        android:layout_width="344dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp" />
+        android:layout_marginTop="150dp"
+        android:layout_marginRight="20dp"
+        android:textColorHint="@color/white"
+        android:hint="Digite o seu nome"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/txtLastName"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Digite seu sobrenome"
-        android:inputType="textPersonName"
+        android:layout_width="344dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:hint="Digite seu sobrenome"
+        android:textColorHint="@color/white"
+        android:inputType="textPersonName" />
 
     <EditText
         android:id="@+id/txtEmail"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Digite seu email"
-        android:inputType="textEmailAddress"
+        android:layout_width="344dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:hint="Digite seu email"
+        android:textColorHint="@color/white"
+
+        android:inputType="textEmailAddress" />
 
     <EditText
         android:id="@+id/txtPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:hint="Digite sua senha"
-        android:inputType="textPassword"
+        android:layout_width="344dp"
+        android:layout_height="50dp"
         android:layout_marginLeft="20dp"
-        android:layout_marginRight="20dp"/>
+        android:layout_marginTop="10dp"
+        android:layout_marginRight="20dp"
+        android:hint="Digite sua senha"
+        android:textColorHint="@color/white"
+        android:inputType="textPassword" />
 
     <Button
         android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="344dp"
+        android:layout_height="50dp"
         android:layout_gravity="center"
         android:layout_marginStart="48dp"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="48dp"
-        android:backgroundTint="@color/white"
-        android:textSize="20dp"
-        android:text="@string/action_register" />
+        android:textColor="@color/white"
+        android:background="#01b4e4"
+        android:text="@string/action_register"
+        android:textSize="20dp" />
 </LinearLayout>
