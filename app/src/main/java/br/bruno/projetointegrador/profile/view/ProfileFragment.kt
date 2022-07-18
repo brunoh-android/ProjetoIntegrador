@@ -1,6 +1,7 @@
 package br.bruno.projetointegrador.profile.view
 
 
+import android.app.Activity
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.Bitmap
@@ -22,9 +23,14 @@ import br.bruno.projetointegrador.databinding.ProfileFragmentsBinding
 import br.bruno.projetointegrador.home.view.MoviesFragmentDirections
 import br.bruno.projetointegrador.login.data.User
 import br.bruno.projetointegrador.login.ui.LoginActivity
+import br.bruno.projetointegrador.login.viewmodel.AccessViewModel
 import br.bruno.projetointegrador.profile.viewModel.ProfileViewModel
 import br.bruno.projetointegrador.utils.buildGlide
 import com.bumptech.glide.Glide
+import com.google.android.gms.auth.api.signin.GoogleSignIn
+import com.google.android.gms.auth.api.signin.GoogleSignInAccount
+import com.google.android.gms.auth.api.signin.GoogleSignInClient
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.UserProfileChangeRequest
 import com.google.firebase.database.DataSnapshot
@@ -105,8 +111,7 @@ class ProfileFragment : Fragment() {
         }
         binding.btnSignOut.setOnClickListener {
             FirebaseAuth.getInstance().signOut()
-            val intent = Intent(requireContext(),LoginActivity::class.java)
-            startActivity(intent)
+            activity?.finish()
         }
 
         val email = currentUser?.email.toString()

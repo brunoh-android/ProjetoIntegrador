@@ -70,4 +70,5 @@ class AccessViewModel : ViewModel() {
         return GoogleSignIn.getClient(activity,gso).signInIntent
     }
 
+
 }
