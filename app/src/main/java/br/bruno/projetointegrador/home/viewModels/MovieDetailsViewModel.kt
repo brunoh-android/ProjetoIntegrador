@@ -1,10 +1,9 @@
 package br.bruno.projetointegrador.home.viewModels
 
+import android.app.Application
 import android.content.Context
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
+import android.util.Log
+import androidx.lifecycle.*
 import br.bruno.projetointegrador.favorites.data.FavMovie
 import br.bruno.projetointegrador.favorites.data.FavRepository
 import br.bruno.projetointegrador.home.data.MovieRepository
@@ -15,10 +14,10 @@ import br.bruno.projetointegrador.utils.Success
 import kotlinx.coroutines.launch
 import retrofit2.HttpException
 
-class MovieDetailsViewModel : ViewModel() {
+class MovieDetailsViewModel(app : Application): AndroidViewModel(app) {
 
     private val repository = MovieRepository()
-    private val favRepo = FavRepository()
+    private val favRepo = FavRepository(app)
 
     private val _movieDetail: MutableLiveData<Result<MoviesDetailsVo>> = MutableLiveData()
     val movieDetail: LiveData<Result<MoviesDetailsVo>> = _movieDetail
@@ -42,6 +41,7 @@ class MovieDetailsViewModel : ViewModel() {
                     tittle = response.title,
                     release_date = response.release_date,
                     vote_average = response.vote_average,
+                    poster_path = response.poster_path
                 )
                 _movieDetail.value = Success(vo)
             } catch (ex: HttpException) {
@@ -50,7 +50,7 @@ class MovieDetailsViewModel : ViewModel() {
         }
     }
 
-    fun upDateFav(id: Int, context: Context, isChecked: Boolean) {
+    fun upDateFav(id: Int,isChecked: Boolean) {
         viewModelScope.launch {
             try {
                 if (isChecked) {
@@ -61,9 +61,9 @@ class MovieDetailsViewModel : ViewModel() {
                         id = response.id,
                         uid = response.id
                     )
-                    favRepo.addFav(context, movie)
+                    favRepo.addFav(movie)
                 } else {
-                    favRepo.deleteById(id, context)
+                    favRepo.deleteById(id)
                 }
                 _favMovie.value = Success(isChecked)
             } catch (ex: Exception) {
@@ -73,15 +73,16 @@ class MovieDetailsViewModel : ViewModel() {
     }
 
 
-    fun isMovieFavorite(id: Int, context: Context) {
+    fun isMovieFavorite(id: Int) {
         viewModelScope.launch {
             try {
-                val movie = favRepo.getMovieById(context, id)
+                val movie = favRepo.getMovieById(id)
                 if (movie != null)
                     _isFavorite.value = Success(true)
                 else _isFavorite.value = Success(false)
 
             } catch (ex: Exception) {
+                Log.e("db", "isMovieFavorite: something")
                 _isFavorite.value = Error()
             }
         }

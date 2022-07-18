@@ -9,24 +9,23 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.popular.view.MoviesAdapter
-import br.bruno.projetointegrador.home.viewModels.PopularMoviesViewModel
+import br.bruno.projetointegrador.home.popular.view.PopularMoviesAdapter
+import br.bruno.projetointegrador.home.viewModels.MoviesViewModel
 import br.bruno.projetointegrador.utils.Error
 import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Success
-import okhttp3.internal.notify
 
 
-class PopularesFragment : Fragment(R.layout.fragments_populares) {
-
+class TopRatedFragment : Fragment(R.layout.fragments_mais_votado) {
 
     private var page = 1
-    private val viewModel: PopularMoviesViewModel by viewModels()
+    private val viewModel: MoviesViewModel by viewModels()
     private val totalPage by lazy {
         viewModel.totalPages
     }
-    private val adapter: MoviesAdapter by lazy {
-        MoviesAdapter() {
+
+    private val adapter: PopularMoviesAdapter by lazy {
+        PopularMoviesAdapter() {
             val direction = MoviesFragmentDirections.actionGlobalMovieDetailsFragment(it.id)
             findNavController().navigate(direction)
         }
@@ -35,37 +34,34 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        preperReycclerView(view)
+        prepareRecyclerView(view)
         setupObserver()
         setupView()
 
     }
 
     private fun setupView() {
-        viewModel.fetchMovieList(page)
+        viewModel.fetchTopRatedMovieList(page)
     }
 
     private fun setupObserver() {
         viewModel.movieList.observe(viewLifecycleOwner) {
-
             when (it) {
-                is Loading -> notify()
+                is Loading -> TODO()
                 is Success -> adapter.addData(it.data)
-                is Error -> Toast.makeText(
-                    requireContext(),
-                    Error<String>().msg,
-                    Toast.LENGTH_SHORT
-                ).show()
+                is Error -> {
+                    Toast.makeText(requireContext(), Error<String>().msg, Toast.LENGTH_SHORT).show()
+                }
             }
         }
 
+
     }
 
-    private fun preperReycclerView(view: View) {
+    private fun prepareRecyclerView(view: View) {
         view.findViewById<RecyclerView>(R.id.MoviesRV).apply {
-            this.adapter = this@PopularesFragment.adapter
+            this.adapter = this@TopRatedFragment.adapter
             addOnScrollListener(object : RecyclerView.OnScrollListener() {
-
 
                 override fun onScrolled(recyclerView: RecyclerView, dx: Int, dy: Int) {
                     super.onScrolled(recyclerView, dx, dy)
@@ -77,7 +73,7 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
                     if (totalItemCount > 0 && lastItem) {
                         page++
                         if (page <= totalPage)
-                            viewModel.fetchMovieList(page)
+                            viewModel.fetchPopularMovieList(page)
                     }
                 }
 
@@ -85,6 +81,5 @@ class PopularesFragment : Fragment(R.layout.fragments_populares) {
         }
 
     }
-
 
 }

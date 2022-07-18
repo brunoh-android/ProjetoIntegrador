@@ -22,7 +22,7 @@
         tools:layout="@layout/favoritos_fragments"/>
     <fragment
         android:id="@+id/profileFragment"
-        android:name="br.bruno.projetointegrador.profile.ProfileFragment"
+        android:name="br.bruno.projetointegrador.profile.view.ProfileFragment"
         android:label="profile_fragments"
         tools:layout="@layout/profile_fragments" />
 

@@ -7,14 +7,12 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AlertDialog
-
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.databinding.ItemFavListBinding
 import br.bruno.projetointegrador.favorites.data.FavMovie
-
 import br.bruno.projetointegrador.utils.IMAGE_URL
-import br.bruno.projetointegrador.utils.MyGlide
+import br.bruno.projetointegrador.utils.buildGlide
 
 
 class FavMovieAdapter(
@@ -65,14 +63,7 @@ class FavMovieAdapter(
         fun bind(movie: FavMovie) {
             title.text = movie.title
             deleteBtn.setOnClickListener { openDeleteDialog(movie) }
-            MyGlide().build(
-                itemView.context,
-                IMAGE_URL,
-                movie.poster_path,
-                icon,
-                icon.width,
-                icon.height
-            )
+            itemView.buildGlide(IMAGE_URL, movie.poster_path, icon, 400, 400)
         }
 
         private fun openDeleteDialog(movie: FavMovie) {

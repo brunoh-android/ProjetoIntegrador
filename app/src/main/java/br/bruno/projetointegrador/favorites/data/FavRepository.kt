@@ -1,46 +1,42 @@
 package br.bruno.projetointegrador.favorites.data
 
+
 import android.content.Context
-import android.content.LocusId
 import androidx.room.Room
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
-import kotlin.coroutines.resume
-import kotlin.coroutines.suspendCoroutine
 
-class FavRepository {
 
-    private fun database(context: Context): AppDatabase = Room.databaseBuilder(
-        context,
-        AppDatabase::class.java, "fav-movie"
-    ).build()
+class FavRepository(val context: Context) {
 
-    suspend fun getAllMovies(context: Context): List<FavMovie> =
+    private val db = Room.databaseBuilder(context, AppDatabase::class.java, "fav-movie").build()
+
+    suspend fun getAllMovies(): List<FavMovie> =
         withContext(Dispatchers.IO) {
-                (database(context).favMovieDAO().getAll())
+            db.favMovieDAO().getAll()
             }
 
-    suspend fun getMovieById(context: Context, id: Int) : FavMovie? =
+    suspend fun getMovieById(id: Int) : FavMovie? =
         withContext(Dispatchers.IO) {
-            database(context).favMovieDAO().getMovieById(id)
+            db.favMovieDAO().getMovieById(id)
         }
 
 
-    suspend fun deleteById(id: Int, context: Context) {
+    suspend fun deleteById(id: Int) {
         withContext(Dispatchers.IO) {
-            database(context).favMovieDAO().deleteById(id)
-        }
-    }
-
-    suspend fun addFav(context: Context, favMovie: FavMovie) {
-        withContext(Dispatchers.IO) {
-           database(context).favMovieDAO().insert(favMovie)
+            db.favMovieDAO().deleteById(id)
         }
     }
 
-    suspend fun delete(context: Context, favMovie: FavMovie) {
+    suspend fun addFav(favMovie: FavMovie) {
         withContext(Dispatchers.IO) {
-            database(context).favMovieDAO().delete(favMovie)
+            db.favMovieDAO().insert(favMovie)
+        }
+    }
+
+    suspend fun delete(favMovie: FavMovie) {
+        withContext(Dispatchers.IO) {
+            db.favMovieDAO().delete(favMovie)
             }
         }
 

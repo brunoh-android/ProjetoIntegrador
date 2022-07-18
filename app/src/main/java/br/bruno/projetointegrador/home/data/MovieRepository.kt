@@ -11,12 +11,12 @@ class MovieRepository {
 
     private val api = retrofit.create<MovieTMDBApi>()
 
-    suspend fun fetchNowPlayingMovieList(): MovieResponse = withContext(Dispatchers.IO) {
-        api.fetchNowPlayingMovieList()
+    suspend fun fetchNowPlayingMovieList(page: Int): MovieResponse = withContext(Dispatchers.IO) {
+        api.fetchNowPlayingMovieList(page)
     }
 
-    suspend fun fetchTopRatedMovieList(): MovieResponse = withContext(Dispatchers.IO) {
-        api.fetchTopRatedMovieList()
+    suspend fun fetchTopRatedMovieList(page: Int): MovieResponse = withContext(Dispatchers.IO) {
+        api.fetchTopRatedMovieList(page)
     }
 
     suspend fun fetchPopularMovieList(page: Int): MovieResponse = withContext(Dispatchers.IO) {
