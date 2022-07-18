@@ -12,7 +12,6 @@ import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.home.popular.view.PopularMoviesAdapter
 import br.bruno.projetointegrador.home.viewModels.MoviesViewModel
 import br.bruno.projetointegrador.utils.Error
-import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Success
 
 
@@ -47,7 +46,6 @@ class PlayingNowFragment : Fragment(R.layout.fragments_em_cartaz) {
     private fun setupObserver() {
         viewModel.movieList.observe(viewLifecycleOwner) {
             when (it) {
-                is Loading -> TODO()
                 is Success -> adapter.addData(it.data)
                 is Error -> {
                     Toast.makeText(requireContext(), Error<String>().msg, Toast.LENGTH_SHORT).show()

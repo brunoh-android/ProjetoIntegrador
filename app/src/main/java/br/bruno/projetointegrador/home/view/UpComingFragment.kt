@@ -13,7 +13,6 @@ import br.bruno.projetointegrador.home.popular.view.PopularMoviesAdapter
 import br.bruno.projetointegrador.home.view.MoviesFragmentDirections
 import br.bruno.projetointegrador.home.viewModels.MoviesViewModel
 import br.bruno.projetointegrador.utils.Error
-import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Success
 
 
@@ -48,7 +47,6 @@ class UpComingFragment : Fragment(R.layout.fragments_proximas_estreias) {
     private fun setupObserver() {
         viewModel.movieList.observe(viewLifecycleOwner) {
             when (it) {
-                is Loading -> TODO()
                 is Success -> adapter.addData(it.data)
                 is Error -> {
                     Toast.makeText(requireContext(), Error<String>().msg, Toast.LENGTH_SHORT).show()

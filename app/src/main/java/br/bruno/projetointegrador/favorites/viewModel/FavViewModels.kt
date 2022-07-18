@@ -5,7 +5,6 @@ import androidx.lifecycle.*
 import br.bruno.projetointegrador.favorites.data.FavMovie
 import br.bruno.projetointegrador.favorites.data.FavRepository
 import br.bruno.projetointegrador.utils.Error
-import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Result
 import br.bruno.projetointegrador.utils.Success
 import kotlinx.coroutines.launch
@@ -19,8 +18,6 @@ class FavViewModels(app : Application) : AndroidViewModel(app) {
 
 
     fun fetchMovies() {
-        _favMovie.value = Loading()
-
         viewModelScope.launch {
             try {
                 val favMovie = repository.getAllMovies()
@@ -33,8 +30,6 @@ class FavViewModels(app : Application) : AndroidViewModel(app) {
     }
 
     fun deleteMovie(favMovie: FavMovie){
-        _favMovie.value = Loading()
-
         viewModelScope.launch {
             try {
                 repository.delete(favMovie)

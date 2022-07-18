@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.favorites.data.FavMovie
 import br.bruno.projetointegrador.favorites.viewModel.FavViewModels
-import br.bruno.projetointegrador.utils.Loading
 import br.bruno.projetointegrador.utils.Success
 
 
@@ -17,10 +16,7 @@ class FavoritesFragment : Fragment(R.layout.favoritos_fragments) {
 
     private val viewModel: FavViewModels by viewModels()
     private val adapter: FavMovieAdapter by lazy {
-        FavMovieAdapter(::onDeleteClicked) { movie ->
-          //  val direction = FavoritesFragmentDirections.actionGlobalMovieDetailsFragment(movie.id)
-          // findNavController().navigate(direction)
-        }
+        FavMovieAdapter(::onDeleteClicked)
     }
 
     override fun onResume() {
@@ -38,7 +34,6 @@ class FavoritesFragment : Fragment(R.layout.favoritos_fragments) {
     private fun setUpObservers() {
         viewModel.favMovie.observe(viewLifecycleOwner) {
             when (it) {
-                is Loading -> showLoading()
                 is Success -> {
                     adapter.updateData(it.data)
                 }
@@ -49,10 +44,6 @@ class FavoritesFragment : Fragment(R.layout.favoritos_fragments) {
 
     private fun showError() {
         Toast.makeText(requireContext(), "ERROR", Toast.LENGTH_SHORT).show()
-    }
-
-    private fun showLoading() {
-        Toast.makeText(requireContext(), "LOADING", Toast.LENGTH_SHORT).show()
     }
 
     private fun setView(view: View) {

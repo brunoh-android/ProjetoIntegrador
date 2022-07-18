@@ -12,9 +12,9 @@ import br.bruno.projetointegrador.R
 import br.bruno.projetointegrador.home.popular.view.PopularMoviesAdapter
 import br.bruno.projetointegrador.home.viewModels.MoviesViewModel
 import br.bruno.projetointegrador.utils.Error
-import br.bruno.projetointegrador.utils.Loading
+
 import br.bruno.projetointegrador.utils.Success
-import okhttp3.internal.notify
+
 
 
 class PopularFragment : Fragment(R.layout.fragments_populares) {
@@ -49,7 +49,6 @@ class PopularFragment : Fragment(R.layout.fragments_populares) {
         viewModel.movieList.observe(viewLifecycleOwner) {
 
             when (it) {
-                is Loading -> notify()
                 is Success -> adapter.addData(it.data)
                 is Error -> Toast.makeText(
                     requireContext(),

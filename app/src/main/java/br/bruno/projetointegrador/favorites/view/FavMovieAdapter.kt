@@ -16,8 +16,7 @@ import br.bruno.projetointegrador.utils.buildGlide
 
 
 class FavMovieAdapter(
-    private val onBtnDeleteClicked: (favMovie: FavMovie) -> Unit,
-    private val clickListener: (FavMovie) -> Unit
+    private val onBtnDeleteClicked: (favMovie: FavMovie) -> Unit
 ) : RecyclerView.Adapter<FavMovieAdapter.FavViewHolder>() {
 
     private val movies: MutableList<FavMovie> = emptyList<FavMovie>().toMutableList()
@@ -29,11 +28,7 @@ class FavMovieAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): FavViewHolder =
-        FavViewHolder(
-            ItemFavListBinding.inflate(LayoutInflater.from(parent.context), parent, false)
-        ) {
-            clickListener(movies[it])
-        }
+        FavViewHolder(ItemFavListBinding.inflate(LayoutInflater.from(parent.context), parent, false))
 
 
     override fun onBindViewHolder(holder: FavViewHolder, position: Int) {
@@ -43,22 +38,13 @@ class FavMovieAdapter(
     override fun getItemCount(): Int = movies.size
 
 
-    inner class FavViewHolder(
-        private val binding: ItemFavListBinding,
-        clickAtPosition: (Int) -> Unit
-    ) :
+    inner class FavViewHolder(private val binding: ItemFavListBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
         private val icon = itemView.findViewById<ImageView>(R.id.movieIcon_favList)
         private val title = itemView.findViewById<TextView>(R.id.movieTittle_favList)
         private val deleteBtn = itemView.findViewById<Button>(R.id.deleteBtn)
 
-
-        init {
-            itemView.findViewById<TextView>(R.id.movieTittle_favList).setOnClickListener {
-                clickAtPosition(adapterPosition)
-            }
-        }
 
         fun bind(movie: FavMovie) {
             title.text = movie.title

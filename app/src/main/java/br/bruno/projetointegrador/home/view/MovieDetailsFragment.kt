@@ -41,11 +41,6 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         setupView()
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.isMovieFavorite(args.id)
-    }
-
     private fun setupView() {
         viewModel.fecthMovieById(args.id)
     }
@@ -71,17 +66,12 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
                 ).show()
             }
         }
-        // liveData change Observed
         viewModel.favMovie.observe(viewLifecycleOwner) { movie ->
             when (movie) {
-                is Success -> if (movie.data){
-                    Toast.makeText(requireContext(), "movie added to favorite list", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(requireContext(), "movie removed from favorite list", Toast.LENGTH_SHORT).show()
-                }
+                is Success -> TODO()
                 else -> Toast.makeText(
                     requireContext(),
-                    "Algo alem do erro ocorreu",
+                    "Um erro ocorreu",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -89,7 +79,6 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
 
         viewModel.isFavorite.observe(viewLifecycleOwner) { movie ->
             when(movie){
-                is Loading -> notify()
                 is Success -> favCheckBox.isChecked = movie.data
                 is Error -> Toast.makeText(requireContext(), "error dataBase", Toast.LENGTH_SHORT).show()
             }
