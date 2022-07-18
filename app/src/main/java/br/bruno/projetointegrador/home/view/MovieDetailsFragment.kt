@@ -68,7 +68,11 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         }
         viewModel.favMovie.observe(viewLifecycleOwner) { movie ->
             when (movie) {
-                is Success -> TODO()
+                is Success -> Toast.makeText(
+                    requireContext(),
+                    "Lista de favoritos atualizada",
+                    Toast.LENGTH_SHORT
+                ).show()
                 else -> Toast.makeText(
                     requireContext(),
                     "Um erro ocorreu",
