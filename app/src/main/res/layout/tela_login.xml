@@ -14,7 +14,7 @@
     <EditText
         android:id="@+id/email"
         android:layout_width="344dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginTop="88dp"
         android:textColorHint="@color/white"
         android:hint="Digite seu email"
@@ -31,7 +31,7 @@
     <EditText
         android:id="@+id/password"
         android:layout_width="344dp"
-        android:layout_height="47dp"
+        android:layout_height="48dp"
         android:layout_marginTop="12dp"
         android:hint="Digite sua senha"
         android:inputType="textPassword"
