@@ -24,21 +24,30 @@
 
 --------------------------------------------------------------------------------------------------------------
 
+## Tela de Login
+
+![login](https://user-images.githubusercontent.com/67665152/179865799-e01f16c8-bc47-426c-96dc-63c7d13589a8.png)
+
+
 ## Tela Inicial - podendo navegar entre os Filmes Populares, Mais votados, Em Cartaz e Estreias
 
 ![home](https://user-images.githubusercontent.com/67665152/179865547-323420e0-566c-4fec-8eff-fe900657a51a.PNG)
+
 
 ## Resumo do filme + Aba Favoritos é possivel Visualizar todos os filmes Salvos 
 
 ![resume](https://user-images.githubusercontent.com/67665152/179865660-836972f6-7faa-4ded-a2b9-8288b38428fa.PNG)
 
+
 ## Para Salvar qualquer filme basta clicar no Filme para ver as informações, e logo vera a caixa de texto para Adicionar aos Favoritos
 
 ![infMovie](https://user-images.githubusercontent.com/67665152/178089059-3f6145e8-36dc-463d-8623-c42d6d6a5d91.PNG)
 
+
 ## Aba Profile - Contem as informações do usuario, caso ele queira podera fazer o LogOut e entrar em outra conta para salvar outros tipos de filmes Favoritos
 
 ![profile](https://user-images.githubusercontent.com/67665152/178089101-f03eecdd-28ec-428c-bf15-dcfabcafb98e.PNG)
+
 
 ## Aba Aboute - Inf do projeto e o nome dos desenvolvedores
 
