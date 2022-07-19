@@ -50,10 +50,10 @@ class SignInFragment : Fragment(R.layout.tela_login) {
 
     private fun setupListeners() {
         signInbtn.setOnClickListener {
-
-
+           if(!(emailTxt.text.toString().isNullOrEmpty() ||passwordTxt.text.toString().isNullOrEmpty() ))
             accessViewModel.onEmailSignIn(emailTxt.text.toString(),passwordTxt.text.toString())
-
+            else
+                Toast.makeText(requireContext(),"Digite os dados", Toast.LENGTH_LONG).show()
 
         }
 
