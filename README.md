@@ -26,11 +26,11 @@
 
 ## Tela Inicial - podendo navegar entre os Filmes Populares, Mais votados, Em Cartaz e Estreias
 
-![Home](https://user-images.githubusercontent.com/67665152/178088962-7114debd-5d93-458b-ac1b-a399e9a2eed1.PNG)
+![home](https://user-images.githubusercontent.com/67665152/179865547-323420e0-566c-4fec-8eff-fe900657a51a.PNG)
 
-## Aba Favoritos é possivel Visualizar todos os filmes Salvos 
+## Resumo do filme + Aba Favoritos é possivel Visualizar todos os filmes Salvos 
 
-![favorite](https://user-images.githubusercontent.com/67665152/178089002-81d570a2-d19a-4735-8f74-ecbc0253843a.PNG)
+![resume](https://user-images.githubusercontent.com/67665152/179865660-836972f6-7faa-4ded-a2b9-8288b38428fa.PNG)
 
 ## Para Salvar qualquer filme basta clicar no Filme para ver as informações, e logo vera a caixa de texto para Adicionar aos Favoritos
 
