@@ -10,7 +10,9 @@
     - Fragment KTX
     - Livedata KTX
     - Glide
-    - Firebase BoM
+    - Firebase BOM
+    - Room Database
+
     
 ## API - "https://api.themoviedb.org"
 
