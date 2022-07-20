@@ -3,7 +3,7 @@ package br.bruno.projetointegrador.home.view
 import androidx.fragment.app.Fragment
 import androidx.viewpager.widget.ViewPager
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.tabItens.peoximasEstreias.view.ProximasEstreiasFragment
+import br.bruno.projetointegrador.home.tabItens.peoximasEstreias.view.UpComingFragment
 import com.google.android.material.tabs.TabLayout
 
 
@@ -22,10 +22,10 @@ class MoviesFragment : Fragment(R.layout.movies_fragments) {
 
         val adapter = ViewPagerAdapter(supportFragmentManager)
 
-        adapter.add(PopularesFragment(), "Populares")
-        adapter.add(MaisVotadoFragment(), "Mais Votados")
-        adapter.add(EmCartazFragment(), "Em Cartaz")
-        adapter.add(ProximasEstreiasFragment(), "Estreias")
+        adapter.add(PopularFragment(), "Populares")
+        adapter.add(TopRatedFragment(), "Mais Votados")
+        adapter.add(PlayingNowFragment(), "Em Cartaz")
+        adapter.add(UpComingFragment(), "Estreias")
 
         viewPager.adapter = adapter
         tabLayout.setupWithViewPager(viewPager)

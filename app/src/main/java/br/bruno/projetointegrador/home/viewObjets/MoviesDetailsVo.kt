@@ -5,6 +5,7 @@ data class MoviesDetailsVo(
     val movie_tittle : String,
     val movie_synopsis: String,
     val tittle: String,
+    val poster_path : String,
     val backdrop_path: String,
     val popularity: Number,
     val vote_average: Number,

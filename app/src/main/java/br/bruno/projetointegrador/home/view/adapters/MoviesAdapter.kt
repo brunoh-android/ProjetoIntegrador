@@ -7,19 +7,19 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import br.bruno.projetointegrador.R
-import br.bruno.projetointegrador.home.viewObjets.PopularMoviesVO
+import br.bruno.projetointegrador.home.viewObjets.MoviesVO
 import br.bruno.projetointegrador.utils.IMAGE_URL
-import br.bruno.projetointegrador.utils.MyGlide
 
-class MoviesAdapter(
-    private val clickListener: (PopularMoviesVO) -> Unit,
+import br.bruno.projetointegrador.utils.buildGlide
 
+class PopularMoviesAdapter(
+    private val clickListener: (MoviesVO) -> Unit,
     ) :
     RecyclerView.Adapter<MoviesViewHolder>() {
 
-    private val movies: MutableList<PopularMoviesVO> = emptyList<PopularMoviesVO>().toMutableList()
+    private val movies: MutableList<MoviesVO> = emptyList<MoviesVO>().toMutableList()
 
-    fun addData(addMovies: List<PopularMoviesVO>) {
+    fun addData(addMovies: List<MoviesVO>) {
         movies.addAll(addMovies)
         notifyDataSetChanged()
     }
@@ -59,12 +59,12 @@ class MoviesViewHolder(
     }
 
 
-    fun bind(movie: PopularMoviesVO) {
+    fun bind(movie: MoviesVO) {
         tittle.text = movie.title
         average.text = movie.vote_average.toString()
         overview.text = movie.overview
 
-        MyGlide().build(itemView.context, IMAGE_URL, movie.poster_path, poster, 400, 400)
+        itemView.buildGlide(IMAGE_URL, movie.poster_path, poster, 400, 400)
     }
 
 

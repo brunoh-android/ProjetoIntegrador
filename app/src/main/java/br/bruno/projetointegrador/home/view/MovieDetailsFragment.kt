@@ -1,5 +1,6 @@
 package br.bruno.projetointegrador.home.view
 
+
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.View
@@ -40,11 +41,6 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         setupView()
     }
 
-    override fun onResume() {
-        super.onResume()
-        viewModel.isMovieFavorite(args.id,requireContext())
-    }
-
     private fun setupView() {
         viewModel.fecthMovieById(args.id)
     }
@@ -52,7 +48,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
     private fun setupListeners() {
         favCheckBox.setOnCheckedChangeListener { button, isChecked ->
             if (button.isPressed) {
-                viewModel.upDateFav(args.id, requireContext(), isChecked)
+                viewModel.upDateFav(args.id, isChecked)
             }
         }
 
@@ -70,17 +66,16 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
                 ).show()
             }
         }
-        // liveData change Observed
         viewModel.favMovie.observe(viewLifecycleOwner) { movie ->
             when (movie) {
-                is Success -> if (movie.data){
-                    Toast.makeText(requireContext(), "movie added to favorite list", Toast.LENGTH_SHORT).show()
-                } else {
-                    Toast.makeText(requireContext(), "movie removed from favorite list", Toast.LENGTH_SHORT).show()
-                }
+                is Success -> Toast.makeText(
+                    requireContext(),
+                    "Lista de favoritos atualizada",
+                    Toast.LENGTH_SHORT
+                ).show()
                 else -> Toast.makeText(
                     requireContext(),
-                    "Algo alem do erro ocorreu",
+                    "Um erro ocorreu",
                     Toast.LENGTH_SHORT
                 ).show()
             }
@@ -88,7 +83,6 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
 
         viewModel.isFavorite.observe(viewLifecycleOwner) { movie ->
             when(movie){
-                is Loading -> notify()
                 is Success -> favCheckBox.isChecked = movie.data
                 is Error -> Toast.makeText(requireContext(), "error dataBase", Toast.LENGTH_SHORT).show()
             }
@@ -101,14 +95,7 @@ class MovieDetailsFragment : Fragment(R.layout.fragment_movie_details) {
         synopsis.text = movie.movie_synopsis
         voteAverage.text = "votos: " + movie.vote_average.toString()
         realeseDate.text = "Lançamento: " + movie.release_date
-        MyGlide().build(
-            requireContext(),
-            IMAGE_URL,
-            movie.backdrop_path,
-            poster,
-            poster.width,
-            poster.height
-        )
+        requireView().buildGlide(IMAGE_URL, movie.poster_path, poster, 400, 400)
     }
 
 }

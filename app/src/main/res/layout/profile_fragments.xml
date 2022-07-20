@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".profile.ProfileFragment"
+    tools:context=".profile.view.ProfileFragment"
     >
 
 
@@ -42,10 +42,11 @@
                     android:layout_toRightOf="@id/profile_img"
                     android:fontFamily="sans-serif-black"
                     android:includeFontPadding="false"
-                    android:text="Nome"
                     android:textColor="@color/white"
                     android:textSize="20sp"
-                    android:textStyle="bold" />
+                    android:textStyle="bold"
+                    tools:text="Nome" />
+
 
             </RelativeLayout>
 
@@ -81,8 +82,8 @@
                             android:layout_centerInParent="true"
                             android:fontFamily="sans-serif-black"
                             android:includeFontPadding="false"
-                            android:text="10"
-                            android:textSize="20sp" />
+                            tools:textSize="20sp"
+                            tools:text="10" />
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
@@ -111,55 +112,72 @@
                     android:hint="Nome Completo">
 
                     <com.google.android.material.textfield.TextInputEditText
+                       android:id="@+id/txtNameFull"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
-                        android:text="Nome Completo"
+                        tools:text="Nome Completo"
                         android:textSize="13sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
                 <com.google.android.material.textfield.TextInputLayout
+
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:hint="E-mail">
 
                     <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/txtEmail"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:drawablePadding="20dp"
-                        android:text="email@gmail.com"
+
+                        tools:text="email@gmail.com"
                         android:textSize="13sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
-                <com.google.android.material.textfield.TextInputLayout
+               <!-- <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Número de telefon"
+                    android:hint="Número de telefone"
 
                     >
-
                     <com.google.android.material.textfield.TextInputEditText
+                       android:id="@+id/txtTelefone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="10dp"
                         android:drawablePadding="20dp"
-                        android:text="+55-(11)97670-8115"
+                        tools:text="+55-(11)97670-8115"
                         android:textSize="13sp" />
 
                 </com.google.android.material.textfield.TextInputLayout>
-
+-->
                 <com.google.android.material.textfield.TextInputLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:hint="Password"
+                    android:hint="Número de telefone"
                     />
 
+                <com.google.android.material.button.MaterialButton
+                    android:id="@+id/btn_signOut"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="LOGOUT"
+                    android:padding="16dp"
+                    android:layout_margin="16dp"
+                    android:textAppearance="@style/TextAppearance.MaterialComponents.Button"
+                    android:backgroundTint="@color/black"
+                    android:gravity="center_horizontal"
+                    android:textColor="@color/white"
+                    />
+            </LinearLayout>
             </LinearLayout>
 
-        </LinearLayout>
+
 
     </androidx.core.widget.NestedScrollView>
 
